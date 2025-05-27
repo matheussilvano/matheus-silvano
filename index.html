@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matheus Silvano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="header-content">
+          <div class="text-group">
+            <h1>Matheus Silvano Pereira</h1>
+            <p>Desenvolvedor IA | Back-end</p>
+          </div>
+          <div class="social-buttons">
+            <a href="https://github.com/matheussilvano" target="_blank" aria-label="GitHub" class="icon-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 0.3C5.37 0.3 0 5.67 0 12.3c0 5.29 3.44 9.78 8.21 11.37.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.35-1.78-1.35-1.78-1.1-.76.08-.74.08-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.63-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.25-3.25-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.24a11.52 11.52 0 0 1 6 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.64.25 2.86.12 3.16.78.85 1.25 1.93 1.25 3.25 0 4.64-2.81 5.67-5.49 5.97.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.3C24 5.67 18.63 0.3 12 0.3z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" aria-label="LinkedIn" class="icon-link">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path d="M20.45 20.45h-3.6v-5.4c0-1.3-.46-2.19-1.62-2.19-.88 0-1.41.59-1.64 1.16-.08.2-.1.47-.1.75v5.68H9.89s.05-9.21 0-10.17h3.6v1.44c.48-.74 1.33-1.8 3.24-1.8 2.37 0 4.14 1.55 4.14 4.88v5.65zM5.34 7.43c-1.16 0-1.91.76-1.91 1.76 0 .97.72 1.76 1.86 1.76h.02c1.19 0 1.91-.79 1.91-1.76-.02-1-.72-1.76-1.88-1.76zM7.14 20.45H3.54V10.28h3.6v10.17zM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.97 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.23 0z"/>
+                    </svg>
+                </a>
+                <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">
+                    🌙
+                </button>
+            </div>
+        </div>
+    </header>      
+
+  <div class="container">
+    <section class="section fade-in">
+      <h2>Sobre Mim</h2>
+      <p>Sou um jovem apaixonado por tecnologia desde pequeno, descobri com o tempo um grande interesse em Inteligência Artificial, focando meus estudos para essa área.</p>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Projetos</h2>
+        <div class="projects">
+      
+          <div class="card">
+            <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" style="text-decoration: none; color: inherit;">
+              <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="project-image">
+              <h3>Fake Data API</h3>
+            </a>
+            <p>Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
+            <div class="tech-stack">
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>Docker</span>
+            </div>
+          </div>
+      
+          <div class="card">
+            <a href="https://gitlab.com/projetos3193519/toxic-content-detector" target="_blank" style="text-decoration: none; color: inherit;">
+              <img src="toxic-content-detector.png" alt="Imagem do Projeto 2" class="project-image">
+              <h3>Toxic Content Detector</h3>
+            </a>
+            <p>projeto de Machine Learning para detecção de comentários tóxicos usando NLP, por meio de regressão logística e TF-IDF</p>
+            <div class="tech-stack">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>Scikit-learn</span>
+              <span>Streamlit</span>
+              <span>Docker</span>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+      
+
+    <section class="section fade-in">
+      <h2>Experiência Profissional</h2>
+      <div class="experience">
+        <div class="card">
+          <h3>Dígitro - Estagiário em Desenvolvimento de IA</h3>
+          <p>Período: abr 2025 - Atual<br>Desenvolvimento de programas implementando algoritmos de IA.</p>
+        </div>
+        <div class="card">
+          <h3>Nexxera - Operador de Implantação</h3>
+          <p>Período: dez 2023 - abr 2025<br>Suporte técnico aos clientes e primeiros projetos com Shell Script/Python.</p>
+        </div>
+        <div class="card">
+            <h3>Nexxera - Jovem Aprendiz (Implantação)</h3>
+            <p>Período: Jan 2022 - Dez 2023<br>Suporte técnico aos clientes.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
