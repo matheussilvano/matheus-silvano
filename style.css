@@ -1,201 +1,580 @@
-/* Reset e Fontes Globais */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- GLOBAIS E VARIÁVEIS --- */
+:root {
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --dark-bg: #0d1117;
+    --dark-card-bg: #161b22;
+    --light-bg: #f7f9fc;
+    --light-card-bg: #ffffff;
+    --text-dark: #24292e;
+    --text-light: #c9d1d9;
+    --border-dark: #30363d;
+    --border-light: #e1e4e8;
+    --shadow-light: 0 8px 24px rgba(149, 157, 165, 0.2);
+    --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto Mono', monospace;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
-/* --- Variáveis de Cor e Animação --- */
-:root {
-    --primary-color: #3498db;
-    --primary-hover: #2980b9;
-    --dark-bg: #121212;
-    --dark-card-bg: #1e1e1e;
-    --light-bg: #f5f5f5;
-    --light-card-bg: #ffffff;
-    --text-dark: #333;
-    --text-light: #f0f0f0;
-    --header-bg-dark: linear-gradient(45deg, #1f1f1f, #2c2c2c);
-    --header-bg-light: linear-gradient(45deg, #2c3e50, #34495e);
-    --card-glow-dark: 0 0 15px rgba(52, 152, 219, 0.5);
-    --card-glow-light: 0 0 15px rgba(52, 152, 219, 0.3);
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: var(--light-bg);
+    font-family: var(--font-primary);
+    background-color: var(--light-bg);
     color: var(--text-dark);
-    line-height: 1.6;
-    transition: background 0.4s, color 0.4s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* --- HEADER COM ANIMAÇÃO DE SCROLL --- */
-header {
-    background: var(--header-bg-light);
-    padding: 2.5rem 2rem;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Transições específicas para robustez */
-    transition: padding 0.4s ease-out, 
-                clip-path 0.4s ease-out, 
-                background 0.4s ease-out, 
-                backdrop-filter 0.4s ease-out;
+body.dark {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
 }
 
-header.header-scrolled {
-    padding: 1rem 2rem;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
-    background: rgba(44, 62, 80, 0.9);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* Substitua o seletor header h1 existente por este bloco completo */
-header h1 {
-    color: white; 
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    transition: font-size 0.4s ease-out;
-    
-    /* Prepara o elemento para conter o efeito de brilho */
+/* --- HERO HEADER --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background: var(--light-bg);
     position: relative;
+    padding: 2rem;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(52, 152, 219, 0.1), transparent 30%),
+        radial-gradient(circle at 85% 40%, rgba(52, 152, 219, 0.1), transparent 30%);
+    transition: background-color 0.3s;
+}
+
+body.dark .hero {
+    background: var(--dark-bg);
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(52, 152, 219, 0.15), transparent 30%),
+        radial-gradient(circle at 85% 40%, rgba(52, 152, 219, 0.15), transparent 30%);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-family: var(--font-secondary);
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- BOTÕES --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-link {
+    background-color: transparent;
+    color: var(--text-dark);
+    padding: 0.5rem 1rem;
+    text-decoration: underline;
+}
+body.dark .btn-link { color: var(--text-light); }
+.btn-link:hover { color: var(--primary-color); }
+
+
+/* --- DARK MODE TOGGLE --- */
+#darkModeToggle {
+    position: fixed; /* Alterado de 'absolute' para 'fixed' */
+    z-index: 1000;   /* Garante que o botão fique acima de outros elementos */
+    top: 2rem;
+    right: 2rem;
+    background: var(--light-card-bg); /* Adiciona um fundo para melhor visibilidade */
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    width: 45px;   /* Um pouco maior para facilitar o clique */
+    height: 45px;
+    font-size: 1.5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light); /* Adiciona uma sombra para destacar */
 }
 
-/* Cria o brilho "mágico" como um elemento posicionado atrás do texto */
-header h1::before {
+body.dark #darkModeToggle {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* --- CONTAINER E SEÇÕES --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.section {
+    margin-bottom: 6rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    position: relative;
+}
+.section-title::after {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* O gradiente do holofote */
-    background: radial-gradient(
-      circle at var(--x) var(--y), 
-      #ffffff 0%,      /* Ponto de luz branco */
-      #a2d2ff 20%,     /* Aura azul bem clara */
-      transparent 40%  /* Desvanece para transparente */
-    );
-    
-    opacity: 0; /* Começa escondido */
-    transition: opacity 0.3s ease-out;
-    z-index: -1; /* Garante que o brilho fique ATRÁS do texto */
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
-/* Quando passar o mouse sobre o H1, o brilho (:before) aparece */
-header h1:hover::before {
-    opacity: 1;
+/* --- GRID DE PROJETOS (MASONRY/PINTEREST) --- */
+.project-grid {
+    column-count: 2; /* Define o número de colunas */
+    column-gap: 2rem; /* Espaço entre as colunas */
 }
 
-/* Estilo para o H1 quando o header está encolhido */
-header.header-scrolled h1 {
-    font-size: 1.8rem;
-}
-
-header.header-scrolled h1 { font-size: 1.8rem; }
-.header-content .text-group p { font-size: 1.1rem; color: #bdc3c7; transition: font-size 0.4s ease-out, opacity 0.4s ease-out; }
-header.header-scrolled .text-group p { font-size: 0; opacity: 0; }
-.header-content { display: flex; flex-direction: row; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
-.social-buttons { display: flex; align-items: center; gap: 1rem; }
-.icon-link { color: white; background: rgba(255, 255, 255, 0.1); padding: 0.7rem; border-radius: 50%; display: inline-flex; transition: background 0.3s, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.icon-link:hover { background-color: var(--primary-color); transform: scale(1.15) rotate(10deg); }
-.btn-download { background-color: var(--primary-color); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2); display: inline-block; }
-.btn-download:hover { background-color: var(--primary-hover); transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3); }
-#darkModeToggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-#darkModeToggle:hover { transform: scale(1.2) rotate(360deg); }
-
-/* --- Container Principal --- */
-.container { max-width: 1000px; margin: auto; padding: 2rem; }
-.section { margin-bottom: 4rem; }
-.section h2 { color: #2c3e50; margin-bottom: 2rem; font-size: 2.2rem; text-align: center; position: relative; }
-.section h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary-color); margin: 0.5rem auto 0; border-radius: 2px; }
-
-/* --- Animações --- */
-@keyframes slideInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- SEÇÃO DE PROJETOS COM LAYOUT DE COLUNAS (MASONRY) --- */
-.projects {
-    column-count: 2;
-    column-gap: 1.5rem;
-}
-
-.experience { display: flex; flex-direction: column; gap: 1rem; }
-
-/* --- AJUSTES NO CARD PARA O LAYOUT DE COLUNAS --- */
 .card {
     background: var(--light-card-bg);
     border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    position: relative;
-    border: 1px solid transparent;
+    box-shadow: var(--shadow-light);
     overflow: hidden;
-    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-light);
+    
+    /* Propriedades para o layout Masonry */
     display: inline-block;
-    margin-bottom: 1.5rem;
-    break-inside: avoid;
+    width: 100%;
+    margin-bottom: 2rem;
+    break-inside: avoid; /* Impede que o card quebre entre as colunas */
+}
+body.dark .card {
+    background: var(--dark-card-bg);
+    box-shadow: var(--shadow-dark);
+    border: 1px solid var(--border-dark);
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.12), var(--card-glow-light);
+.card-image-container {
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: auto; /* Altura automática para a imagem */
+    display: block;
+    transition: transform 0.4s ease;
+}
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.tech-stack {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tech-stack span {
+    font-family: var(--font-secondary);
+    background-color: var(--primary-color-);
+    color: var(--primary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+body.dark .tech-stack span {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+.card-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* --- TIMELINE DE EXPERIÊNCIA --- */
+.timeline {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--border-light);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+body.dark .timeline::after { background-color: var(--border-dark); }
+
+.timeline-item {
+    padding: 1rem 3rem;
+    position: relative;
+    width: 50%;
+}
+.timeline-item:nth-child(odd) { left: 0; }
+.timeline-item:nth-child(even) { left: 50%; }
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: var(--light-bg);
+    border: 4px solid var(--primary-color);
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+body.dark .timeline-item::after { background-color: var(--dark-bg); }
+
+.timeline-item:nth-child(even)::after { left: -10px; }
+
+.timeline-content {
+    padding: 1.5rem;
+    background: var(--light-card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    position: relative;
+}
+body.dark .timeline-content {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+}
+
+.timeline-content h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+.timeline-date {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    display: inline-block;
+}
+
+/* --- CARROSSEL DE RECOMENDAÇÕES --- */
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+.carousel-track {
+    display: flex;
+    overflow: hidden;
+}
+.carousel-card {
+    flex: 0 0 100%;
+    padding: 2rem;
+    text-align: center;
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    transform: scale(0.95);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.carousel-card.active {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+}
+.carousel-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--primary-color);
+}
+.carousel-card h3 { font-size: 1.3rem; margin-bottom: 0.25rem; }
+.carousel-card .role { color: #6c757d; margin-bottom: 1rem; }
+.carousel-card .text { font-style: italic; max-width: 600px; margin: 0 auto; }
+body.dark .carousel-card .role { color: #8b949e; }
+
+.carousel-buttons {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.carousel-button {
+    background: var(--light-card-bg);
+    border: 1px solid var(--border-light);
+    color: var(--text-dark);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    transition: all 0.3s;
+}
+body.dark .carousel-button {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    color: var(--text-light);
+}
+.carousel-button:hover {
+    background-color: var(--primary-color);
+    color: white;
     border-color: var(--primary-color);
 }
 
-.project-image { width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem; transition: transform 0.4s ease; display: block; }
-.card:hover .project-image { transform: scale(1.05); }
-.tech-stack { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tech-stack span { background-color: #e9ecef; color: #495057; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.85rem; font-weight: 500; }
-.fade-in { opacity: 0; transition: opacity 0.8s ease-out; }
-.fade-in.visible { opacity: 1; }
-.fade-in.visible .card { animation: slideInUp 0.6s ease-out forwards; opacity: 0; }
-.projects.visible .card:nth-child(1) { animation-delay: 0.1s; }
-.projects.visible .card:nth-child(2) { animation-delay: 0.2s; }
-.projects.visible .card:nth-child(3) { animation-delay: 0.3s; }
 
-/* --- Modo Escuro e Carrossel --- */
-body.dark { background: var(--dark-bg); color: var(--text-light); }
-body.dark header { background: var(--header-bg-dark); }
-body.dark header.header-scrolled { background: rgba(31, 31, 31, 0.9); }
-body.dark .card { background: var(--dark-card-bg); border-color: #333; }
-body.dark .card:hover { border-color: var(--primary-color); box-shadow: 0 12px 24px rgba(0,0,0,0.2), var(--card-glow-dark); }
-body.dark .section h2 { color: var(--text-light); }
-body.dark .tech-stack span { background-color: #2c2c2c; color: #e0e0e0; }
-body.dark .btn-download { background-color: var(--primary-color); color: var(--dark-bg); }
-body.dark .btn-download:hover { background-color: var(--primary-hover); color: white; }
-.carousel-container { position: relative; max-width: 900px; margin: auto; overflow: hidden; }
-.carousel-track-container { overflow: hidden; }
-.carousel-track { display: flex; transition: transform 0.5s ease; gap: 1rem; }
-.carousel-card { background: var(--light-card-bg); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); flex: 0 0 80%; max-width: 80%; margin: 0 auto; text-align: center; opacity: 0.5; transform: scale(0.95); transition: transform 0.5s, opacity 0.5s; }
-.carousel-card.active { opacity: 1; transform: scale(1); }
-.carousel-card img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem; }
-.carousel-card h3 { margin: 0.2rem 0; font-size: 1.2rem; }
-.carousel-card .role { color: #777; font-size: 0.9rem; margin-bottom: 1rem; }
-.carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background: #222; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; font-size: 2rem; z-index: 10; border-radius: 0.5rem; opacity: 0.8; }
-.carousel-button:hover { background: #000; }
-.carousel-button.prev { left: 0; }
-.carousel-button.next { right: 0; }
-body.dark .carousel-card { background: var(--dark-card-bg); color: var(--text-light); box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05); }
-body.dark .carousel-card .role { color: #bbb; }
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    border-top: 1px solid var(--border-light);
+}
+body.dark .footer {
+    border-top: 1px solid var(--border-dark);
+}
 
-/* --- Media Queries --- */
+
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    .projects { column-count: 1; }
-    .header-content { flex-direction: column; gap: 1rem; }
-    header h1 { font-size: 1.8rem; }
-    header.header-scrolled h1 { font-size: 1.5rem; }
-    header.header-scrolled .text-group { display: none; }
-    .section h2 { font-size: 1.8rem; }
-    .carousel-card { flex: 0 0 100%; max-width: 100%; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .container { padding: 4rem 1rem; }
+
+    /* Para telas menores, usa apenas uma coluna para projetos */
+    .project-grid { column-count: 1; }
+
+    .timeline::after { left: 15px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
+    .timeline-item:nth-child(even) { left: 0; }
+    .timeline-item::after { left: 6px; }
+}
+
+/* --- ESTILOS PARA AS SETAS DE SCROLL COM TEXTO --- */
+.scroll-down-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-dark);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    bottom: 1rem; /* Ajusta a distância da parte inferior */
+}
+
+body.dark .scroll-down-arrow {
+    color: var(--text-light);
+}
+
+.scroll-down-arrow:hover {
+    color: var(--primary-color);
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Posicionamento específico da seta da seção "Sobre Mim" */
+.about-to-projects {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-dark);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column-reverse; /* Texto acima da seta */
+    align-items: center;
+    gap: 0.2rem;
+    cursor: pointer;
+    animation: bounce-up 2s infinite; /* Uma animação ligeiramente diferente */
+    bottom: 2rem; /* Ajusta a distância da parte inferior da seção "Sobre Mim" */
+}
+
+body.dark .about-to-projects {
+    color: var(--text-light);
+}
+
+.about-to-projects:hover {
+    color: var(--primary-color);
+}
+
+/* Animações ajustadas */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes bounce-up {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* --- SEÇÃO "SOBRE MIM" DE PÁGINA INTEIRA --- */
+.section-fullpage {
+    position: relative; /* Adicione esta linha */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.about-image-container {
+    flex: 0 0 300px; /* Tamanho fixo para a imagem */
+}
+
+.about-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    border: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-light);
+}
+
+body.dark .about-image-container img {
+    box-shadow: var(--shadow-dark);
+}
+
+.about-text-container {
+    flex: 1;
+}
+
+.about-text-container .section-title {
+    text-align: left; /* Alinha o título à esquerda */
+    margin-bottom: 1.5rem;
+}
+
+.about-text-container .section-title::after {
+    margin: 0.5rem 0 0; /* Alinha a linha azul à esquerda */
+}
+
+.about-text-container p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+/* --- RESPONSIVIDADE PARA A SEÇÃO "SOBRE MIM" --- */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .about-text-container .section-title,
+    .about-text-container .section-title::after {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

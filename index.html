@@ -1,181 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Matheus Silvano</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Matheus Silvano | Portfólio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="header-content">
-          <div class="text-group">
-            <h1>Matheus Silvano Pereira</h1>
-            <p>Desenvolvedor IA | Back-end</p>
-          </div>
-          <div class="social-buttons">
-            <a href="https://github.com/matheussilvano" target="_blank" aria-label="GitHub" class="icon-link">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                <path d="M12 0.3C5.37 0.3 0 5.67 0 12.3c0 5.29 3.44 9.78 8.21 11.37.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.35-1.78-1.35-1.78-1.1-.76.08-.74.08-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.85 2.83 1.32 3.52 1.01.11-.78.42-1.32.76-1.63-2.67-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.4 1.25-3.25-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.24a11.52 11.52 0 0 1 6 0c2.29-1.56 3.3-1.24 3.3-1.24.66 1.64.25 2.86.12 3.16.78.85 1.25 1.93 1.25 3.25 0 4.64-2.81 5.67-5.49 5.97.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.3C24 5.67 18.63 0.3 12 0.3z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" aria-label="LinkedIn" class="icon-link">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                        <path d="M20.45 20.45h-3.6v-5.4c0-1.3-.46-2.19-1.62-2.19-.88 0-1.41.59-1.64 1.16-.08.2-.1.47-.1.75v5.68H9.89s.05-9.21 0-10.17h3.6v1.44c.48-.74 1.33-1.8 3.24-1.8 2.37 0 4.14 1.55 4.14 4.88v5.65zM5.34 7.43c-1.16 0-1.91.76-1.91 1.76 0 .97.72 1.76 1.86 1.76h.02c1.19 0 1.91-.79 1.91-1.76-.02-1-.72-1.76-1.88-1.76zM7.14 20.45H3.54V10.28h3.6v10.17zM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.97 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.23 0z"/>
-                    </svg>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Matheus Silvano</h1>
+            <p class="hero-subtitle">Desenvolvedor IA & Back-end</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/matheussilvano" target="_blank" class="btn btn-secondary">
+                    GitHub
                 </a>
-                <a href="cv_matheus_silvano_pereira.pdf" download class="btn-download" aria-label="Baixar currículo">
-                  Baixar Currículo
-                </a>                
-                <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">
-                    🌙
-                </button>
+                <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="btn btn-secondary">
+                     LinkedIn
+                </a>
+                <a href="cv_matheus_silvano_pereira.pdf" download class="btn btn-primary">Baixar Currículo</a>
             </div>
         </div>
-    </header>      
 
-  <div class="container">
-    <section class="section fade-in">
-      <h2>Sobre Mim</h2>
-      <p>Desenvolvedor de IA na Dígitro Tecnologia  e estudante de Sistemas de Informação na Universidade Federal de Santa Catarina. Minha atuação é focada na pesquisa e implementação de modelos de Inteligência Artificial, com forte base em Machine Learning e NLP. Utilizo diariamente ferramentas como Python, Pandas, Scikit-learn e TensorFlow para o tratamento de dados, criação de datasets e desenvolvimento de soluções que aprimoram produtos existentes. Sou motivado por resolver desafios reais e gerar impacto positivo através da aplicação prática da IA.</p>
-    </section>
+        <a href="#about" class="scroll-down-arrow" aria-label="Rolar para a seção Sobre Mim">
+            <span class="scroll-text">Sobre Mim</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
+            </svg>
+        </a>
+        <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
+    </header>
 
-    <section class="section fade-in">
-        <h2>Projetos</h2>
-        <div class="projects">
-
-          <div class="card">
-            <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" style="text-decoration: none; color: inherit;">
-              <img src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="project-image">
-              <h3>Real Time Face Recognizer</h3>
+    <main>
+        <section id="about" class="section-fullpage">
+            <div class="about-content">
+                <div class="about-image-container">
+                    <img src="matheus-silvano.png" alt="Foto de Matheus Silvano">
+                </div>
+                <div class="about-text-container">
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <p>Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na Universidade Federal de Santa Catarina. Minha atuação é focada na pesquisa e implementação de modelos de Inteligência Artificial, com forte base em Machine Learning e NLP.</p>
+                    <p>Sou motivado por resolver desafios reais e gerar impacto positivo através da aplicação prática da IA, utilizando diariamente ferramentas como Python, Pandas, Scikit-learn e TensorFlow.</p>
+                </div>
+            </div>
+            <a href="#projects" class="scroll-down-arrow" aria-label="Rolar para a seção Projetos">
+                <span class="scroll-text">Projetos</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                    <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
+                </svg>
             </a>
-            <p>Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real usando uma webcam.</p>
-            <div class="tech-stack">
-              <span>Python</span>
-              <span>OpenCV</span>
-              <span>NumPy</span>
-              <span>Pickle</span>
-              <span>Docker</span>
-            </div>
-            <div style="margin-top: 1rem;">
-                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem; background-color: #555;">Ver no GitLab</a>
-            </div>
-          </div>
-      
-          <div class="card">
-            <a href="https://toxic-content-detector.streamlit.app/" target="_blank" style="text-decoration: none; color: inherit;">
-              <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="project-image">
-              <h3>Toxic Content Detector</h3>
-            </a>
-            <p>Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF</p>
-            <div class="tech-stack">
-              <span>Python</span>
-              <span>Pandas</span>
-              <span>Scikit-learn</span>
-              <span>Streamlit</span>
-              <span>Docker</span>
-            </div>
-            <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Testar Online</a>
-                <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem; background-color: #555;">Ver no GitHub</a>
-            </div>
-          </div>
+        </section>
 
-          <div class="card">
-            <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" style="text-decoration: none; color: inherit;">
-              <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="project-image">
-              <h3>Fake Data API</h3>
-            </a>
-            <p>Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
-            <div class="tech-stack">
-              <span>Python</span>
-              <span>FastAPI</span>
-              <span>Docker</span>
-            </div>
-            <div style="margin-top: 1rem;">
-                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem; background-color: #555;">Ver no GitLab</a>
-            </div>
-          </div>
-      
-          <div class="card">
-            <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" style="text-decoration: none; color: inherit;">
-              <img src="cnpj-extension.jpeg" alt="Imagem da extensão Removedor de Pontos do CNPJ" class="project-image">
-              <h3>Removedor de Pontos do CNPJ</h3>
-            </a>
-            <p>Uma extensão para Chrome que nasceu para resolver uma dor pessoal: copiar CNPJs formatados. Hoje, com mais de 170 usuários, a ferramenta simplifica a rotina de dezenas de pessoas diariamente.</p>
-            <div class="tech-stack">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
-            <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Ver na Web Store</a>
-                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn-download" style="font-size: 0.9rem; padding: 0.6rem 1.2rem; background-color: #555;">Ver no GitHub</a>
-            </div>
-          </div>
-          
-        </div>
-      </section>
+        <div class="container">
+            <section id="projects" class="section">
+                <h2 class="section-title">Projetos</h2>
+                <div class="project-grid">
+                    <div class="card">
+                        <div class="card-image-container">
+                            <img src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Real Time Face Recognizer</h3>
+                            <p>Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn btn-secondary">Ver no GitLab</a>
+                            </div>
+                        </div>
+                    </div>
 
-      <section class="section fade-in">
-        <h2>Recomendações</h2>
-        <div class="carousel-container">
-          <button class="carousel-button prev">&#10094;</button>
-          <div class="carousel-track-container">
-            <div class="carousel-track">
-              <div class="carousel-card active">
-                <img src="edson-silva.jpeg" alt="Foto de Edson Silva">
-                <h3>Edson Silva</h3>
-                <p class="role">Presidente e fundador do Grupo Nexxees</p>
-                <p class="text">"Matheus 
+                    <div class="card">
+                        <div class="card-image-container">
+                            <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Toxic Content Detector</h3>
+                            <p>Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn btn-primary">Testar Online</a>
+                                <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn btn-secondary">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
 
-                  Primeiro fico muito feliz por sua trajetória até aqui.
-                  Segundo de poder ter contribuído pelo início de sua carreira e crescimento.
-                  Terceiro por se dedicar e ajudar nosso time em seus objetivos e metas.
-                  E quarto por poder afirmar que nossa empresa não só atrai, mas contribui na formação de talentos que tem potencial de voar mais alto e buscar objetivos maiores.
-                  
-                  Sabemos que grandes talentos seguirão novos rumos um dia. Tentamos ao máximo rete-los, mas o mundo oferece oportunidades e não seremos nós a bloquear, mas recomendar, torcer e aplaudir pelo seu sucesso.
-                  
-                  Parabéns siga em frente e conquiste seus sonhos."</p>
-              </div>
-              <div class="carousel-card">
-                <img src="robson-clemente.jpeg" alt="Foto de Robson Clemente">
-                <h3>Robson Clemente</h3>
-                <p class="role">Gerente de Implantação - Nexxera</p>
-                <p class="text">"Matheus Silvano obrigado pelo período em que você esteve conosco na equipe de Implantação. Desde o seu início como jovem aprendiz até a sua efetivação, você sempre demonstrou muito respeito e comprometimento. Você é um grande profissional e tem um futuro muito promissor."</p>
-              </div>
-              <div class="carousel-card">
-                <img src="junior-matos.jpeg" alt="Foto de Junior Matos">
-                <h3>Junior Manoel de Matos</h3>
-                <p class="role">Tech Leader - Nexxera</p>
-                <p class="text">"Tive o prazer imenso de ser Tech Lead durante toda evolução do Matheus Silvano na Nexxera, desde estagiário até operador de implantação, possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. Ótimo comportamento e grande facilidade de trabalho em equipe, muito responsável com suas entregas e o mais importante, eram entregas com qualidade, sem retrabalho a serem realizados. Enfim, posso afirmar que o Silvano é um grande profissional e que com certeza terá um futuro brilhante pela frente ."</p>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-button next">&#10095;</button>
-        </div>
-      </section>      
+                    <div class="card">
+                        <div class="card-image-container">
+                            <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Fake Data API</h3>
+                            <p>Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>FastAPI</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn btn-secondary">Ver no GitLab</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-image-container">
+                            <img src="cnpj-extension.jpeg" alt="Imagem da extensão Removedor de Pontos do CNPJ" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Removedor de Pontos do CNPJ</h3>
+                            <p>Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.</p>
+                            <div class="tech-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn btn-primary">Ver na Web Store</a>
+                                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn btn-secondary">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <section class="section fade-in">
-      <h2>Experiência Profissional</h2>
-      <div class="experience">
-        <div class="card">
-          <h3>Dígitro - Estagiário em Desenvolvimento de IA</h3>
-          <p>Período: abr 2025 - Atual<br>Desenvolvimento de programas implementando algoritmos de IA.</p>
-        </div>
-        <div class="card">
-          <h3>Nexxera - Operador de Implantação</h3>
-          <p>Período: dez 2023 - abr 2025<br>Suporte técnico aos clientes e primeiros projetos com Shell Script/Python.</p>
-        </div>
-        <div class="card">
-            <h3>Nexxera - Jovem Aprendiz (Implantação)</h3>
-            <p>Período: Jan 2022 - Dez 2023<br>Suporte técnico aos clientes.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+            <section id="experience" class="section">
+                <h2 class="section-title">Experiência Profissional</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Dígitro - Estagiário em Desenvolvimento de IA</h3>
+                            <span class="timeline-date">Abr 2025 - Atual</span>
+                            <p>Desenvolvimento de programas implementando algoritmos de IA, pesquisa de novas aplicações e modelos, e tratamento de dados para criação de datasets.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Nexxera - Operador de Implantação</h3>
+                            <span class="timeline-date">Dez 2023 - Abr 2025</span>
+                            <p>Suporte técnico a clientes, automação de processos com Shell Script/Python e análise de layouts de arquivos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Nexxera - Jovem Aprendiz (Implantação)</h3>
+                            <span class="timeline-date">Jan 2022 - Dez 2023</span>
+                            <p>Primeiro contato com o mundo corporativo, realizando o suporte técnico e inserção de clientes na base da empresa.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <script src="script.js"></script>
+            <section id="recommendations" class="section">
+                <h2 class="section-title">Recomendações</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-card">
+                            <img src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
+                            <h3>Edson Silva</h3>
+                            <p class="role">Presidente e fundador do Grupo Nexxees</p>
+                            <p class="text">"Matheus, fico muito feliz por sua trajetória e por ter contribuído para o início de sua carreira. Grandes talentos seguirão novos rumos, e o mundo oferece grandes oportunidades. Parabéns, siga em frente e conquiste seus sonhos."</p>
+                        </div>
+                        <div class="carousel-card">
+                            <img src="robson-clemente.jpeg" alt="Foto de Robson Clemente" class="carousel-avatar">
+                            <h3>Robson Clemente</h3>
+                            <p class="role">Gerente de Implantação - Nexxera</p>
+                            <p class="text">"Obrigado pelo período em que esteve conosco. Desde o seu início como jovem aprendiz, você sempre demonstrou muito respeito e comprometimento. Você é um grande profissional e tem um futuro muito promissor."</p>
+                        </div>
+                        <div class="carousel-card">
+                            <img src="junior-matos.jpeg" alt="Foto de Junior Matos" class="carousel-avatar">
+                            <h3>Junior Manoel de Matos</h3>
+                            <p class="role">Tech Leader - Nexxera</p>
+                            <p class="text">"Tive o prazer de ser Tech Lead durante toda a evolução do Matheus na Nexxera. Possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. Um grande profissional que terá um futuro brilhante."</p>
+                        </div>
+                    </div>
+                    <div class="carousel-buttons">
+                        <button class="carousel-button prev">&#10094;</button>
+                        <button class="carousel-button next">&#10095;</button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Matheus Silvano. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
