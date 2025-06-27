@@ -2,6 +2,8 @@
 
 Este é o código-fonte do meu portfólio pessoal, uma página da web interativa para mostrar minhas habilidades, projetos e experiência profissional.
 
+![image](https://github.com/user-attachments/assets/1be6b791-94f1-4a41-bc5b-ad7966899d4c)
+
 ## Sobre o Projeto
 
 O portfólio foi criado como uma página única com um design moderno e responsivo. A navegação é fluida, com seções que detalham minha trajetória como desenvolvedor, meus principais projetos e recomendações de colegas de trabalho.
