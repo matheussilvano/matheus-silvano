@@ -321,10 +321,23 @@ body.dark .timeline-item::after { background-color: var(--dark-bg); }
     border: 1px solid var(--border-light);
     border-radius: 8px;
     position: relative;
+    transition: all 0.3s ease; 
 }
+
+/* Adicione este novo bloco para o efeito ao passar o mouse */
+.timeline-content:hover {
+    transform: translateY(-8px); /* Levanta o card um pouco */
+    box-shadow: var(--shadow-light); /* Adiciona uma sombra mais pronunciada */
+}
+
 body.dark .timeline-content {
     background: var(--dark-card-bg);
     border-color: var(--border-dark);
+}
+
+/* Adiciona a sombra correta para o modo escuro no hover */
+body.dark .timeline-content:hover {
+    box-shadow: var(--shadow-dark);
 }
 
 .timeline-content h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
@@ -577,4 +590,58 @@ body.dark .about-image-container img {
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+/* --- SEÇÃO DE CONTATO --- */
+.contact-subtitle {
+    text-align: center;
+    max-width: 500px;
+    margin: -2rem auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    background-color: var(--light-card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-light);
+}
+
+body.dark .contact-item {
+    color: var(--text-light);
+    background-color: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.contact-item i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.contact-item span {
+    font-size: 1rem;
+    font-weight: 500;
 }
