@@ -130,17 +130,60 @@ body.dark .hero {
 body.dark .btn-link { color: var(--text-light); }
 .btn-link:hover { color: var(--primary-color); }
 
+/* --- CONTROLES DO CABEÇALHO (IDIOMA E MODO ESCURO) --- */
+.header-controls {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* --- SELETOR DE IDIOMA --- */
+.language-selector {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--light-card-bg);
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-light);
+}
+
+body.dark .language-selector {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+.lang-flag {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0.6;
+}
+
+.lang-flag:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.lang-flag.active {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
 
 /* --- DARK MODE TOGGLE --- */
 #darkModeToggle {
-    position: fixed; /* Alterado de 'absolute' para 'fixed' */
-    z-index: 1000;   /* Garante que o botão fique acima de outros elementos */
-    top: 2rem;
-    right: 2rem;
-    background: var(--light-card-bg); /* Adiciona um fundo para melhor visibilidade */
+    background: var(--light-card-bg);
     border: 1px solid var(--border-light);
     border-radius: 50%;
-    width: 45px;   /* Um pouco maior para facilitar o clique */
+    width: 45px;
     height: 45px;
     font-size: 1.5rem;
     cursor: pointer;
@@ -148,7 +191,7 @@ body.dark .btn-link { color: var(--text-light); }
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-light); /* Adiciona uma sombra para destacar */
+    box-shadow: var(--shadow-light);
 }
 
 body.dark #darkModeToggle {
@@ -443,6 +486,11 @@ body.dark .footer {
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
     .timeline-item:nth-child(even) { left: 0; }
     .timeline-item::after { left: 6px; }
+
+    .header-controls {
+        top: 1rem;
+        right: 1rem;
+    }
 }
 
 /* --- ESTILOS PARA AS SETAS DE SCROLL COM TEXTO --- */

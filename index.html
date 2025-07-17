@@ -14,27 +14,34 @@
 <body>
 
     <header class="hero">
+        <div class="header-controls">
+            <div id="languageSelector" class="language-selector">
+                <img src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
+                <img src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
+            </div>
+            <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
+        </div>
+
         <div class="hero-content">
             <h1 class="hero-title">Matheus Silvano</h1>
-            <p class="hero-subtitle">Desenvolvedor IA & Back-end</p>
+            <p class="hero-subtitle" data-translate="hero_subtitle">Desenvolvedor IA & Back-end</p>
             <div class="hero-buttons">
-                <a href="https://github.com/matheussilvano" target="_blank" class="btn btn-secondary">
+                <a href="https://github.com/matheussilvano" target="_blank" class="btn btn-secondary" data-translate="github_button">
                     GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="btn btn-secondary">
                      LinkedIn
                 </a>
-                <a href="cv_matheus_silvano_pereira.pdf" download class="btn btn-primary">Baixar Currículo</a>
+                <a href="cv_matheus_silvano_pereira.pdf" download id="cvDownloader" class="btn btn-primary" data-translate="download_cv_button">Baixar Currículo</a>
             </div>
         </div>
 
         <a href="#about" class="scroll-down-arrow" aria-label="Rolar para a seção Sobre Mim">
-            <span class="scroll-text">Sobre Mim</span>
+            <span class="scroll-text" data-translate="about_me_scroll">Sobre Mim</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
                 <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
             </svg>
         </a>
-        <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
     </header>
 
     <main>
@@ -44,13 +51,13 @@
                     <img src="matheus-silvano.png" alt="Foto de Matheus Silvano">
                 </div>
                 <div class="about-text-container">
-                    <h2 class="section-title">Sobre Mim</h2>
-                    <p>Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na Universidade Federal de Santa Catarina. Minha atuação é focada na pesquisa e implementação de modelos de Inteligência Artificial, com forte base em Machine Learning e NLP.</p>
-                    <p>Sou motivado por resolver desafios reais e gerar impacto positivo através da aplicação prática da IA, utilizando diariamente ferramentas como Python, Pandas, Scikit-learn e TensorFlow.</p>
+                    <h2 class="section-title" data-translate="about_me_title">Sobre Mim</h2>
+                    <p data-translate="about_me_p1">Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na Universidade Federal de Santa Catarina. Minha atuação é focada na pesquisa e implementação de modelos de Inteligência Artificial, com forte base em Machine Learning e NLP.</p>
+                    <p data-translate="about_me_p2">Sou motivado por resolver desafios reais e gerar impacto positivo através da aplicação prática da IA, utilizando diariamente ferramentas como Python, Pandas, Scikit-learn e TensorFlow.</p>
                 </div>
             </div>
             <a href="#projects" class="scroll-down-arrow" aria-label="Rolar para a seção Projetos">
-                <span class="scroll-text">Projetos</span>
+                <span class="scroll-text" data-translate="projects_scroll">Projetos</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
                     <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
                 </svg>
@@ -59,20 +66,20 @@
 
         <div class="container">
             <section id="projects" class="section">
-                <h2 class="section-title">Projetos</h2>
+                <h2 class="section-title" data-translate="projects_title">Projetos</h2>
                 <div class="project-grid">
                     <div class="card">
                         <div class="card-image-container">
                             <img src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="card-image">
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Real Time Face Recognizer</h3>
-                            <p>Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.</p>
+                            <h3 class="card-title" data-translate="project1_title">Real Time Face Recognizer</h3>
+                            <p data-translate="project1_desc">Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.</p>
                             <div class="tech-stack">
                                 <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Docker</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn btn-secondary">Ver no GitLab</a>
+                                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
                             </div>
                         </div>
                     </div>
@@ -82,14 +89,14 @@
                             <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="card-image">
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Toxic Content Detector</h3>
-                            <p>Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.</p>
+                            <h3 class="card-title" data-translate="project2_title">Toxic Content Detector</h3>
+                            <p data-translate="project2_desc">Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.</p>
                             <div class="tech-stack">
                                 <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn btn-primary">Testar Online</a>
-                                <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn btn-secondary">Ver no GitHub</a>
+                                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn btn-primary" data-translate="test_online_button">Testar Online</a>
+                                <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -99,13 +106,13 @@
                             <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="card-image">
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Fake Data API</h3>
-                            <p>Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
+                            <h3 class="card-title" data-translate="project3_title">Fake Data API</h3>
+                            <p data-translate="project3_desc">Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
                             <div class="tech-stack">
                                 <span>Python</span><span>FastAPI</span><span>Docker</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn btn-secondary">Ver no GitLab</a>
+                                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
                             </div>
                         </div>
                     </div>
@@ -115,14 +122,14 @@
                             <img src="cnpj-extension.jpeg" alt="Imagem da extensão Removedor de Pontos do CNPJ" class="card-image">
                         </div>
                         <div class="card-content">
-                            <h3 class="card-title">Removedor de Pontos do CNPJ</h3>
-                            <p>Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.</p>
+                            <h3 class="card-title" data-translate="project4_title">Removedor de Pontos do CNPJ</h3>
+                            <p data-translate="project4_desc">Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.</p>
                             <div class="tech-stack">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn btn-primary">Ver na Web Store</a>
-                                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn btn-secondary">Ver no GitHub</a>
+                                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn btn-primary" data-translate="view_webstore_button">Ver na Web Store</a>
+                                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -130,53 +137,53 @@
             </section>
 
             <section id="experience" class="section">
-                <h2 class="section-title">Experiência Profissional</h2>
+                <h2 class="section-title" data-translate="experience_title">Experiência Profissional</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h3>Dígitro - Estagiário em Desenvolvimento de IA</h3>
-                            <span class="timeline-date">Abr 2025 - Atual</span>
-                            <p>Desenvolvimento de programas implementando algoritmos de IA, pesquisa de novas aplicações e modelos, e tratamento de dados para criação de datasets.</p>
+                            <h3 data-translate="exp1_title">Dígitro - Estagiário em Desenvolvimento de IA</h3>
+                            <span class="timeline-date" data-translate="exp1_date">Abr 2025 - Atual</span>
+                            <p data-translate="exp1_desc">Desenvolvimento de programas implementando algoritmos de IA, pesquisa de novas aplicações e modelos, e tratamento de dados para criação de datasets.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h3>Nexxera - Operador de Implantação</h3>
-                            <span class="timeline-date">Dez 2023 - Abr 2025</span>
-                            <p>Suporte técnico a clientes, automação de processos com Shell Script/Python e análise de layouts de arquivos.</p>
+                            <h3 data-translate="exp2_title">Nexxera - Operador de Implantação</h3>
+                            <span class="timeline-date" data-translate="exp2_date">Dez 2023 - Abr 2025</span>
+                            <p data-translate="exp2_desc">Suporte técnico a clientes, automação de processos com Shell Script/Python e análise de layouts de arquivos.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-content">
-                            <h3>Nexxera - Jovem Aprendiz (Implantação)</h3>
-                            <span class="timeline-date">Jan 2022 - Dez 2023</span>
-                            <p>Primeiro contato com o mundo corporativo, realizando o suporte técnico e inserção de clientes na base da empresa.</p>
+                            <h3 data-translate="exp3_title">Nexxera - Jovem Aprendiz (Implantação)</h3>
+                            <span class="timeline-date" data-translate="exp3_date">Jan 2022 - Dez 2023</span>
+                            <p data-translate="exp3_desc">Primeiro contato com o mundo corporativo, realizando o suporte técnico e inserção de clientes na base da empresa.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section id="recommendations" class="section">
-                <h2 class="section-title">Recomendações</h2>
+                <h2 class="section-title" data-translate="recommendations_title">Recomendações</h2>
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="carousel-card">
                             <img src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
                             <h3>Edson Silva</h3>
-                            <p class="role">Presidente e fundador do Grupo Nexxees</p>
-                            <p class="text">"Matheus, fico muito feliz por sua trajetória e por ter contribuído para o início de sua carreira. Grandes talentos seguirão novos rumos, e o mundo oferece grandes oportunidades. Parabéns, siga em frente e conquiste seus sonhos."</p>
+                            <p class="role" data-translate="rec1_role">Presidente e fundador do Grupo Nexxees</p>
+                            <p class="text" data-translate="rec1_text">"Matheus, fico muito feliz por sua trajetória e por ter contribuído para o início de sua carreira. Grandes talentos seguirão novos rumos, e o mundo oferece grandes oportunidades. Parabéns, siga em frente e conquiste seus sonhos."</p>
                         </div>
                         <div class="carousel-card">
                             <img src="robson-clemente.jpeg" alt="Foto de Robson Clemente" class="carousel-avatar">
                             <h3>Robson Clemente</h3>
-                            <p class="role">Gerente de Implantação - Nexxera</p>
-                            <p class="text">"Obrigado pelo período em que esteve conosco. Desde o seu início como jovem aprendiz, você sempre demonstrou muito respeito e comprometimento. Você é um grande profissional e tem um futuro muito promissor."</p>
+                            <p class="role" data-translate="rec2_role">Gerente de Implantação - Nexxera</p>
+                            <p class="text" data-translate="rec2_text">"Obrigado pelo período em que esteve conosco. Desde o seu início como jovem aprendiz, você sempre demonstrou muito respeito e comprometimento. Você é um grande profissional e tem um futuro muito promissor."</p>
                         </div>
                         <div class="carousel-card">
                             <img src="junior-matos.jpeg" alt="Foto de Junior Matos" class="carousel-avatar">
                             <h3>Junior Manoel de Matos</h3>
-                            <p class="role">Tech Leader - Nexxera</p>
-                            <p class="text">"Tive o prazer de ser Tech Lead durante toda a evolução do Matheus na Nexxera. Possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. Um grande profissional que terá um futuro brilhante."</p>
+                            <p class="role" data-translate="rec3_role">Tech Leader - Nexxera</p>
+                            <p class="text" data-translate="rec3_text">"Tive o prazer de ser Tech Lead durante toda a evolução do Matheus na Nexxera. Possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. Um grande profissional que terá um futuro brilhante."</p>
                         </div>
                     </div>
                     <div class="carousel-buttons">
@@ -187,20 +194,20 @@
             </section>
 
             <section id="contact" class="section">
-                <h2 class="section-title">Contato</h2>
-                <p class="contact-subtitle">Vamos conversar! Entre em contato comigo através dos canais abaixo.</p>
+                <h2 class="section-title" data-translate="contact_title">Contato</h2>
+                <p class="contact-subtitle" data-translate="contact_subtitle">Vamos conversar! Entre em contato comigo através dos canais abaixo.</p>
                 <div class="contact-links">
                     <a href="mailto:matheussilvano2005@gmail.com" class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>matheussilvano2005@gmail.com</span>
+                        <span data-translate="contact_email">matheussilvano2005@gmail.com</span>
                     </a>
                     <a href="https://wa.me/5548998584035" target="_blank" class="contact-item">
                         <i class="fab fa-whatsapp"></i>
-                        <span>(48) 99858-4035</span>
+                        <span data-translate="contact_whatsapp">(48) 99858-4035</span>
                     </a>
                     <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="contact-item">
                         <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
+                        <span data-translate="contact_linkedin">LinkedIn</span>
                     </a>
                 </div>
             </section>
@@ -208,7 +215,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2024 Matheus Silvano. Todos os direitos reservados.</p>
+        <p data-translate="footer_text">&copy; 2024 Matheus Silvano. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
