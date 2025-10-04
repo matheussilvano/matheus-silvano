@@ -193,4 +193,112 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- INICIALIZAÇÃO DA PÁGINA ---
   const savedLang = localStorage.getItem("language") || (navigator.language.startsWith('en') ? 'en' : 'pt');
   setLanguage(savedLang);
+  
+  
+  // --- LÓGICA DO CHATBOT ---
+  const chatContainer = document.querySelector('.chat-container');
+  const chatOpenBtn = document.querySelector('.chat-open-btn');
+  const chatCloseBtn = document.querySelector('.chat-close-btn');
+  const chatFullscreenBtn = document.querySelector('.chat-fullscreen-btn');
+  const chatBox = document.getElementById('chat-box');
+  const userInput = document.getElementById('user-input');
+  const sendBtn = document.getElementById('send-btn');
+
+  // Variável para guardar o ID da conversa
+  let threadId = null; 
+  const apiUrl = 'https://portfolio-assistant-api.onrender.com/ask';
+
+  // Abrir e fechar o chat
+  chatOpenBtn.addEventListener('click', () => chatContainer.classList.add('open'));
+  chatCloseBtn.addEventListener('click', () => chatContainer.classList.remove('open'));
+
+  // Lógica de Tela Cheia
+  chatFullscreenBtn.addEventListener('click', () => {
+      chatContainer.classList.toggle('fullscreen');
+      const icon = chatFullscreenBtn.querySelector('i');
+      if (chatContainer.classList.contains('fullscreen')) {
+          icon.classList.remove('fa-expand');
+          icon.classList.add('fa-compress');
+      } else {
+          icon.classList.remove('fa-compress');
+          icon.classList.add('fa-expand');
+      }
+  });
+
+  // Função para adicionar mensagem ao chat
+  const addMessage = (message, sender) => {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('chat-message', sender);
+      
+      const typingIndicator = chatBox.querySelector('.typing-indicator');
+      if (typingIndicator) {
+          typingIndicator.remove();
+      }
+
+      // --- INÍCIO DA ALTERAÇÃO ---
+      // Converte o Markdown básico para HTML
+      let formattedMessage = message
+          // Converte **negrito** para <strong>negrito</strong>
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          // Converte [texto](url) para <a href="url" target="_blank">texto</a>
+          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      
+      // Usa a mensagem formatada
+      messageElement.innerHTML = `<p>${formattedMessage}</p>`;
+      // --- FIM DA ALTERAÇÃO ---
+
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+  };
+  
+  // Função para mostrar o indicador "digitando..."
+  const showTypingIndicator = () => {
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('chat-message', 'assistant', 'typing-indicator');
+      typingElement.innerHTML = '<span></span><span></span><span></span>';
+      chatBox.appendChild(typingElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+  };
+
+  // Função para enviar pergunta para a API
+  const handleSendMessage = async () => {
+      const question = userInput.value.trim();
+      if (!question) return;
+
+      addMessage(question, 'user');
+      userInput.value = '';
+      showTypingIndicator();
+
+      try {
+          const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  question: question
+              }),
+          });
+
+          if (!response.ok) {
+              throw new Error('Erro na API: ' + response.statusText);
+          }
+
+          const data = await response.json();
+          threadId = data.thread_id; 
+          addMessage(data.answer, 'assistant');
+
+      } catch (error) {
+          console.error("Falha ao contatar a API do assistente:", error);
+          addMessage("Desculpe, não consegui me conectar ao meu cérebro. Tente novamente mais tarde.", 'assistant');
+      }
+  };
+
+  // Event Listeners para o envio
+  sendBtn.addEventListener('click', handleSendMessage);
+  userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+          handleSendMessage();
+      }
+  });
 });
