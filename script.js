@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- LÓGICA DO CHATBOT ---
+  // --- LÓGICA DO CHATBOT (CORRIGIDA COM DIAGNÓSTICO) ---
   const chatContainer = document.querySelector('.chat-container');
   const chatOpenBtn = document.querySelector('.chat-open-btn');
   const chatCloseBtn = document.querySelector('.chat-close-btn');
@@ -258,8 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInput = document.getElementById('user-input');
   const sendBtn = document.getElementById('send-btn');
 
-  let threadId = null; 
-  const apiUrl = 'https://portfolio-assistant-api.onrender.com/ask';
+  let threadId = null;
+const apiUrl = 'https://api.matheussilvano.dev/ask';
 
   chatBox.addEventListener('click', (e) => {
     if (e.target.classList.contains('quick-reply-btn')) {
@@ -273,7 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // AÇÃO ALTERADA: Agora o botão principal abre e fecha o chat
   chatOpenBtn.addEventListener('click', () => chatContainer.classList.toggle('open'));
   
   chatCloseBtn.addEventListener('click', () => chatContainer.classList.remove('open'));
@@ -289,17 +288,12 @@ document.addEventListener("DOMContentLoaded", () => {
           icon.classList.add('fa-expand');
       }
   });
-
-  const addMessage = (message, sender) => {
+  
+  const addMessage = (content, sender) => {
       const messageElement = document.createElement('div');
       messageElement.classList.add('chat-message', sender);
       
-      const typingIndicator = chatBox.querySelector('.typing-indicator');
-      if (typingIndicator) {
-          typingIndicator.remove();
-      }
-
-      let formattedMessage = message
+      let formattedMessage = content
           .replace(/\n/g, '<br>')
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
@@ -325,6 +319,8 @@ document.addEventListener("DOMContentLoaded", () => {
       userInput.value = '';
       showTypingIndicator();
 
+      let assistantMessageParagraph = null;
+
       try {
           const response = await fetch(apiUrl, {
               method: 'POST',
@@ -332,7 +328,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                  question: question
+                  question: question,
+                  thread_id: threadId
               }),
           });
 
@@ -340,12 +337,68 @@ document.addEventListener("DOMContentLoaded", () => {
               throw new Error('Erro na API: ' + response.statusText);
           }
 
-          const data = await response.json();
-          threadId = data.thread_id; 
-          addMessage(data.answer, 'assistant');
+          console.log("Iniciando processamento do stream...");
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let fullResponse = '';
+          let chunkCount = 0;
+
+          while (true) {
+              const { done, value } = await reader.read();
+              if (done) {
+                  console.log("Stream finalizado.");
+                  break;
+              }
+              
+              chunkCount++;
+              const chunk = decoder.decode(value, { stream: true });
+              console.log(`Chunk ${chunkCount} recebido:`, chunk);
+
+              const lines = chunk.split('\n\n').filter(line => line.trim() !== '');
+
+              for (const line of lines) {
+                  if (line.startsWith('data:')) {
+                      const dataStr = line.substring(5);
+                      try {
+                          const data = JSON.parse(dataStr);
+
+                          if (data.event === 'thread_id') {
+                              threadId = data.data;
+                          } else if (data.event === 'text_chunk') {
+                              if (!assistantMessageParagraph) {
+                                  const typingIndicator = chatBox.querySelector('.typing-indicator');
+                                  if (typingIndicator) {
+                                     typingIndicator.remove();
+                                  }
+                                  
+                                  const messageElement = document.createElement('div');
+                                  messageElement.classList.add('chat-message', 'assistant');
+                                  assistantMessageParagraph = document.createElement('p');
+                                  messageElement.appendChild(assistantMessageParagraph);
+                                  chatBox.appendChild(messageElement);
+                              }
+                              
+                              fullResponse += data.data;
+                              assistantMessageParagraph.innerHTML = fullResponse
+                                  .replace(/\n/g, '<br>')
+                                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+                              
+                              chatBox.scrollTop = chatBox.scrollHeight;
+                          }
+                      } catch (e) {
+                          console.error("Erro ao processar JSON do chunk:", dataStr, e);
+                      }
+                  }
+              }
+          }
 
       } catch (error) {
           console.error("Falha ao contatar a API do assistente:", error);
+          const typingIndicator = chatBox.querySelector('.typing-indicator');
+          if (typingIndicator) {
+             typingIndicator.remove();
+          }
           addMessage("Desculpe, não consegui me conectar ao meu cérebro. Tente novamente mais tarde.", 'assistant');
       }
   };
@@ -362,7 +415,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (heroSection) {
     heroSection.addEventListener('mousemove', (e) => {
       const { clientX: x, clientY: y } = e;
-      // Atualiza as variáveis CSS com a posição do mouse
       heroSection.style.setProperty('--mouse-x', `${x}px`);
       heroSection.style.setProperty('--mouse-y', `${y}px`);
     });
