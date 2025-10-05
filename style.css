@@ -224,7 +224,9 @@ body.dark #darkModeToggle {
 }
 
 .section {
-    margin-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
 }
 
 .section-title {
@@ -289,6 +291,19 @@ body.dark .card {
 
 .card-content {
     padding: 1.5rem;
+}
+
+.card-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-secondary);
 }
 
 .card-title {
@@ -465,6 +480,62 @@ body.dark .carousel-button {
     border-color: var(--primary-color);
 }
 
+/* --- CARROSSEL DE TECNOLOGIAS --- */
+.tech-carousel-container {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.tech-carousel-slider {
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+.tech-slide-track {
+    display: flex;
+    width: calc(20 * 200px); /* 10 slides * 2 (duplicado) * 200px (largura + margem) */
+    animation: scroll 30s linear infinite;
+}
+.tech-carousel-slider:hover .tech-slide-track {
+    animation-play-state: paused;
+}
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-10 * 200px)); } /* Metade dos slides * (largura do slide + margem) */
+}
+.tech-slide {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    perspective: 100px;
+    margin: 0 50px; /* Espaçamento entre logos */
+}
+.tech-slide img {
+    width: 70px;
+    transition: transform 0.3s;
+    filter: grayscale(1);
+    opacity: 0.7;
+}
+body.dark .tech-slide img {
+    opacity: 0.6;
+}
+.tech-slide img:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    opacity: 1;
+}
+.tech-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
 
 /* --- FOOTER --- */
 .footer {
@@ -527,29 +598,6 @@ body.dark .scroll-down-arrow {
     font-weight: 600;
 }
 
-.about-to-projects {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--text-dark);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 0.2rem;
-    cursor: pointer;
-    animation: bounce-up 2s infinite;
-    bottom: 2rem;
-}
-
-body.dark .about-to-projects {
-    color: var(--text-light);
-}
-
-.about-to-projects:hover {
-    color: var(--primary-color);
-}
-
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateX(-50%) translateY(0);
@@ -559,18 +607,6 @@ body.dark .about-to-projects {
     }
     60% {
         transform: translateX(-50%) translateY(-5px);
-    }
-}
-
-@keyframes bounce-up {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(5px);
     }
 }
 

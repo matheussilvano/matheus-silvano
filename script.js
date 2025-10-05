@@ -157,12 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- LÓGICA PARA O CARROSSEL ---
-  const track = document.querySelector(".carousel-track");
-  const nextButton = document.querySelector(".carousel-button.next");
-  const prevButton = document.querySelector(".carousel-button.prev");
-
-  if (track && nextButton && prevButton) {
+  // --- LÓGICA PARA O CARROSSEL DE RECOMENDAÇÕES ---
+  const recommendationsCarousel = document.querySelector("#recommendations .carousel-container");
+  if (recommendationsCarousel) {
+    const track = recommendationsCarousel.querySelector(".carousel-track");
+    const nextButton = recommendationsCarousel.querySelector(".carousel-button.next");
+    const prevButton = recommendationsCarousel.querySelector(".carousel-button.prev");
     const cards = Array.from(track.children);
     let currentIndex = 0;
 
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     updateCarousel();
   }
-
+  
   // --- INICIALIZAÇÃO DA PÁGINA ---
   const savedLang = localStorage.getItem("language") || (navigator.language.startsWith('en') ? 'en' : 'pt');
   setLanguage(savedLang);
@@ -210,8 +210,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- LÓGICA PARA EFEITO DE DIGITAÇÃO ---
   function typeWriter(element) {
-    const text = element.getAttribute('data-translate-text'); // Pega o texto de um atributo
-    if (!text) return;
+    if (!element) return;
+    const key = element.getAttribute('data-translate');
+    const lang = localStorage.getItem("language") || 'pt';
+    const text = translations[lang][key] || '';
+    
+    element.setAttribute('data-translate-text', text);
     const textArray = text.split('');
     element.innerHTML = '';
     textArray.forEach((letter, i) => {
@@ -221,9 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   const heroSubtitle = document.querySelector('.hero-subtitle');
-  // Armazena o texto original para não perdê-lo
-  const originalText = translations[savedLang][heroSubtitle.dataset.translate];
-  heroSubtitle.setAttribute('data-translate-text', originalText);
   typeWriter(heroSubtitle);
   
   // --- LÓGICA PARA EFEITO 3D NOS CARDS ---
