@@ -47,7 +47,7 @@
 
     <main>
         <section id="about" class="section-fullpage">
-            <div class="about-content">
+            <div class="about-content reveal">
                 <div class="about-image-container">
                     <img src="matheus-silvano.png" alt="Foto de Matheus Silvano">
                 </div>
@@ -67,9 +67,9 @@
 
         <div class="container">
             <section id="projects" class="section">
-                <h2 class="section-title" data-translate="projects_title">Projetos</h2>
+                <h2 class="section-title reveal" data-translate="projects_title">Projetos</h2>
                 <div class="project-grid">
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-image-container">
                             <img src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="card-image">
                         </div>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-image-container">
                             <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="card-image">
                         </div>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-image-container">
                             <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="card-image">
                         </div>
@@ -118,7 +118,7 @@
                         </div>
                     </div>
                     
-                    <div class="card">
+                    <div class="card reveal">
                         <div class="card-image-container">
                             <img src="cnpj-extension.jpeg" alt="Imagem da extensão Removedor de Pontos do CNPJ" class="card-image">
                         </div>
@@ -138,23 +138,23 @@
             </section>
 
             <section id="experience" class="section">
-                <h2 class="section-title" data-translate="experience_title">Experiência Profissional</h2>
+                <h2 class="section-title reveal" data-translate="experience_title">Experiência Profissional</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item reveal">
                         <div class="timeline-content">
                             <h3 data-translate="exp1_title">Dígitro - Estagiário em Desenvolvimento de IA</h3>
                             <span class="timeline-date" data-translate="exp1_date">Abr 2025 - Atual</span>
                             <p data-translate="exp1_desc">Desenvolvimento de programas implementando algoritmos de IA, pesquisa de novas aplicações e modelos, e tratamento de dados para criação de datasets.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item reveal">
                         <div class="timeline-content">
                             <h3 data-translate="exp2_title">Nexxera - Operador de Implantação</h3>
                             <span class="timeline-date" data-translate="exp2_date">Dez 2023 - Abr 2025</span>
                             <p data-translate="exp2_desc">Suporte técnico a clientes, automação de processos com Shell Script/Python e análise de layouts de arquivos.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item reveal">
                         <div class="timeline-content">
                             <h3 data-translate="exp3_title">Nexxera - Jovem Aprendiz (Implantação)</h3>
                             <span class="timeline-date" data-translate="exp3_date">Jan 2022 - Dez 2023</span>
@@ -165,8 +165,8 @@
             </section>
 
             <section id="recommendations" class="section">
-                <h2 class="section-title" data-translate="recommendations_title">Recomendações</h2>
-                <div class="carousel-container">
+                <h2 class="section-title reveal" data-translate="recommendations_title">Recomendações</h2>
+                <div class="carousel-container reveal">
                     <div class="carousel-track">
                         <div class="carousel-card">
                             <img src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
@@ -195,18 +195,18 @@
             </section>
 
             <section id="contact" class="section">
-                <h2 class="section-title" data-translate="contact_title">Contato</h2>
-                <p class="contact-subtitle" data-translate="contact_subtitle">Vamos conversar! Entre em contato comigo através dos canais abaixo.</p>
+                <h2 class="section-title reveal" data-translate="contact_title">Contato</h2>
+                <p class="contact-subtitle reveal" data-translate="contact_subtitle">Vamos conversar! Entre em contato comigo através dos canais abaixo.</p>
                 <div class="contact-links">
-                    <a href="mailto:matheussilvano2005@gmail.com" class="contact-item">
+                    <a href="mailto:matheussilvano2005@gmail.com" class="contact-item reveal">
                         <i class="fas fa-envelope"></i>
                         <span data-translate="contact_email">matheussilvano2005@gmail.com</span>
                     </a>
-                    <a href="https://wa.me/5548998584035" target="_blank" class="contact-item">
+                    <a href="https://wa.me/5548998584035" target="_blank" class="contact-item reveal">
                         <i class="fab fa-whatsapp"></i>
                         <span data-translate="contact_whatsapp">(48) 99858-4035</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="contact-item">
+                    <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="contact-item reveal">
                         <i class="fab fa-linkedin"></i>
                         <span data-translate="contact_linkedin">LinkedIn</span>
                     </a>
@@ -221,9 +221,12 @@
     
     <div class="chat-container">
         <div class="chat-header">
-            <div class="chat-header-title">
+            <div class="chat-avatar">
                 <i class="fa-solid fa-robot"></i>
-                <h3>Assistente</h3>
+            </div>
+            <div class="chat-header-title">
+                <h3>Assistente Virtual</h3>
+                <span>Online</span>
             </div>
             <div class="chat-header-buttons">
                 <button class="chat-fullscreen-btn" aria-label="Tela cheia">
@@ -250,9 +253,13 @@
         </div>
     </div>
 
-    <button class="chat-open-btn" aria-label="Abrir chat">
-        <i class="fa-solid fa-comment-dots fa-2x"></i>
-    </button>
+    <div class="chat-trigger-wrapper">
+        <span class="chat-cta-bubble">Converse comigo!</span>
+        <button class="chat-open-btn" aria-label="Abrir chat">
+            <i class="fa-solid fa-robot fa-2x"></i>
+        </button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

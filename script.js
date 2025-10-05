@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Atualiza o link de download do currículo
     const cvDownloader = document.getElementById("cvDownloader");
     if (cvDownloader) {
       const cvPath = lang === 'en' 
@@ -117,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cvDownloader.href = cvPath;
     }
 
-    // Atualiza a classe 'active' nas bandeiras
     flags.forEach(flag => {
       if (flag.dataset.lang === lang) {
         flag.classList.add("active");
@@ -193,8 +191,63 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- INICIALIZAÇÃO DA PÁGINA ---
   const savedLang = localStorage.getItem("language") || (navigator.language.startsWith('en') ? 'en' : 'pt');
   setLanguage(savedLang);
+
+  // --- LÓGICA PARA ANIMAÇÃO DE SCROLL (REVEAL ON SCROLL) ---
+  const revealElements = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Animação acontece só uma vez
+      }
+    });
+  }, {
+    threshold: 0.1 
+  });
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+
+  // --- LÓGICA PARA EFEITO DE DIGITAÇÃO ---
+  function typeWriter(element) {
+    const text = element.getAttribute('data-translate-text'); // Pega o texto de um atributo
+    if (!text) return;
+    const textArray = text.split('');
+    element.innerHTML = '';
+    textArray.forEach((letter, i) => {
+      setTimeout(() => {
+        element.innerHTML += letter === ' ' ? '&nbsp;' : letter;
+      }, 90 * i);
+    });
+  }
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+  // Armazena o texto original para não perdê-lo
+  const originalText = translations[savedLang][heroSubtitle.dataset.translate];
+  heroSubtitle.setAttribute('data-translate-text', originalText);
+  typeWriter(heroSubtitle);
   
-  
+  // --- LÓGICA PARA EFEITO 3D NOS CARDS ---
+  const projectCards = document.querySelectorAll('.card');
+  projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -7;
+      const rotateY = ((x - centerX) / centerX) * 7;
+      
+      card.style.transform = `translateY(-10px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      setTimeout(() => {
+        card.style.transform = '';
+      }, 400);
+    });
+  });
+
   // --- LÓGICA DO CHATBOT ---
   const chatContainer = document.querySelector('.chat-container');
   const chatOpenBtn = document.querySelector('.chat-open-btn');
@@ -204,19 +257,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInput = document.getElementById('user-input');
   const sendBtn = document.getElementById('send-btn');
 
-  // Variável para guardar o ID da conversa
   let threadId = null; 
   const apiUrl = 'https://portfolio-assistant-api.onrender.com/ask';
 
-  // LÓGICA PARA BOTÕES DE SUGESTÃO (QUICK REPLIES)
   chatBox.addEventListener('click', (e) => {
-    // Verifica se o elemento clicado é um botão de sugestão
     if (e.target.classList.contains('quick-reply-btn')) {
         const question = e.target.innerText;
-        userInput.value = question; // Coloca a pergunta no input (opcional)
-        handleSendMessage();      // Envia a mensagem
-
-        // Remove o container dos botões para não poluir o chat
+        userInput.value = question;
+        handleSendMessage();
         const quickRepliesContainer = document.querySelector('.quick-replies');
         if (quickRepliesContainer) {
             quickRepliesContainer.remove();
@@ -224,11 +272,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Abrir e fechar o chat
-  chatOpenBtn.addEventListener('click', () => chatContainer.classList.add('open'));
+  // AÇÃO ALTERADA: Agora o botão principal abre e fecha o chat
+  chatOpenBtn.addEventListener('click', () => chatContainer.classList.toggle('open'));
+  
   chatCloseBtn.addEventListener('click', () => chatContainer.classList.remove('open'));
 
-  // Lógica de Tela Cheia
   chatFullscreenBtn.addEventListener('click', () => {
       chatContainer.classList.toggle('fullscreen');
       const icon = chatFullscreenBtn.querySelector('i');
@@ -241,7 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 
-  // Função para adicionar mensagem ao chat
   const addMessage = (message, sender) => {
       const messageElement = document.createElement('div');
       messageElement.classList.add('chat-message', sender);
@@ -251,20 +298,16 @@ document.addEventListener("DOMContentLoaded", () => {
           typingIndicator.remove();
       }
 
-      // Converte o Markdown básico e QUEBRAS DE LINHA para HTML
       let formattedMessage = message
-          .replace(/\n/g, '<br>') // Adicionado para formatar quebras de linha
+          .replace(/\n/g, '<br>')
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
       
-      // Usa a mensagem formatada
       messageElement.innerHTML = `<p>${formattedMessage}</p>`;
-
       chatBox.appendChild(messageElement);
       chatBox.scrollTop = chatBox.scrollHeight;
   };
   
-  // Função para mostrar o indicador "digitando..."
   const showTypingIndicator = () => {
       const typingElement = document.createElement('div');
       typingElement.classList.add('chat-message', 'assistant', 'typing-indicator');
@@ -273,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
       chatBox.scrollTop = chatBox.scrollHeight;
   };
 
-  // Função para enviar pergunta para a API
   const handleSendMessage = async () => {
       const question = userInput.value.trim();
       if (!question) return;
@@ -307,11 +349,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   };
 
-  // Event Listeners para o envio
   sendBtn.addEventListener('click', handleSendMessage);
   userInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
           handleSendMessage();
       }
   });
+  
+  // --- ANIMAÇÃO DE FUNDO SEGUINDO O MOUSE ---
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const { clientX: x, clientY: y } = e;
+      // Atualiza as variáveis CSS com a posição do mouse
+      heroSection.style.setProperty('--mouse-x', `${x}px`);
+      heroSection.style.setProperty('--mouse-y', `${y}px`);
+    });
+  }
 });
