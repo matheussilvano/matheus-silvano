@@ -208,6 +208,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let threadId = null; 
   const apiUrl = 'https://portfolio-assistant-api.onrender.com/ask';
 
+  // LÓGICA PARA BOTÕES DE SUGESTÃO (QUICK REPLIES)
+  chatBox.addEventListener('click', (e) => {
+    // Verifica se o elemento clicado é um botão de sugestão
+    if (e.target.classList.contains('quick-reply-btn')) {
+        const question = e.target.innerText;
+        userInput.value = question; // Coloca a pergunta no input (opcional)
+        handleSendMessage();      // Envia a mensagem
+
+        // Remove o container dos botões para não poluir o chat
+        const quickRepliesContainer = document.querySelector('.quick-replies');
+        if (quickRepliesContainer) {
+            quickRepliesContainer.remove();
+        }
+    }
+  });
+
   // Abrir e fechar o chat
   chatOpenBtn.addEventListener('click', () => chatContainer.classList.add('open'));
   chatCloseBtn.addEventListener('click', () => chatContainer.classList.remove('open'));
@@ -235,17 +251,14 @@ document.addEventListener("DOMContentLoaded", () => {
           typingIndicator.remove();
       }
 
-      // --- INÍCIO DA ALTERAÇÃO ---
-      // Converte o Markdown básico para HTML
+      // Converte o Markdown básico e QUEBRAS DE LINHA para HTML
       let formattedMessage = message
-          // Converte **negrito** para <strong>negrito</strong>
+          .replace(/\n/g, '<br>') // Adicionado para formatar quebras de linha
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-          // Converte [texto](url) para <a href="url" target="_blank">texto</a>
           .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
       
       // Usa a mensagem formatada
       messageElement.innerHTML = `<p>${formattedMessage}</p>`;
-      // --- FIM DA ALTERAÇÃO ---
 
       chatBox.appendChild(messageElement);
       chatBox.scrollTop = chatBox.scrollHeight;
