@@ -745,7 +745,7 @@ body.dark .contact-item {
     transform: translateY(0);
 }
 
-/* --- ESTILOS DO CHATBOT (DESIGN ATUALIZADO) --- */
+/* --- ESTILOS DO CHATBOT --- */
 :root {
     --chat-gradient: linear-gradient(135deg, #4facfe 0%, #3498db 100%);
     --chat-user-bg: #2ecc71;
@@ -756,51 +756,18 @@ body.dark {
     --chat-assistant-bg: #161b22;
 }
 
-/* BOTÃO DE ABRIR O CHAT E BALÃO DE CTA */
 .chat-trigger-wrapper {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     z-index: 1000;
-    /* Revertendo para a versão anterior que era mais estável */
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
 .chat-cta-bubble {
-    background: var(--chat-gradient);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInBubble 0.5s ease-out 2s forwards;
-    position: relative;
-    pointer-events: none;
-}
-
-.chat-cta-bubble::after {
-    content: '';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #3498db;
-}
-
-@keyframes fadeInBubble {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    display: none;
 }
 
 .chat-open-btn {
@@ -822,10 +789,10 @@ body.dark {
 }
 
 .chat-open-icon {
-    width: 100%;       /* Faz a imagem ocupar toda a largura do botão */
-    height: 100%;      /* Faz a imagem ocupar toda a altura do botão */
-    object-fit: cover; /* Garante que a imagem cubra o círculo sem distorcer */
-    border-radius: 50%;/* Aplica a máscara circular DIRETAMENTE na imagem */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
     pointer-events: none;
 }
 
@@ -840,7 +807,6 @@ body.dark {
     100% { box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
 }
 
-/* JANELA DO CHAT */
 .chat-container {
     position: fixed;
     bottom: 6.5rem;
@@ -860,15 +826,12 @@ body.dark {
     transform: translateY(50px);
     transform-origin: bottom right;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    
-    /* ADICIONADO: Garante que a janela invisível não bloqueie cliques */
     pointer-events: none; 
 }
 
 .chat-container.open {
     opacity: 1;
     transform: translateY(0);
-    /* ADICIONADO: Reativa os cliques quando a janela está aberta */
     pointer-events: auto;
 }
 
@@ -883,7 +846,6 @@ body.dark .chat-container {
     border-color: var(--border-dark);
 }
 
-/* CABEÇALHO DO CHAT */
 .chat-header {
     background: white;
     color: var(--text-dark);
@@ -907,8 +869,8 @@ body.dark .chat-header {
     border-radius: 50%;
     margin-right: 1rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    background-color: #f0f0f0; /* Cor de fundo caso a imagem não carregue */
-    overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+    background-color: #f0f0f0;
+    overflow: hidden;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -918,8 +880,8 @@ body.dark .chat-header {
 .chat-avatar-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
-    transform: scale(1.15); /* Aplica o efeito de zoom */
+    object-fit: cover;
+    transform: scale(1.15);
 }
 
 .chat-header-title {
@@ -945,7 +907,6 @@ body.dark .chat-header-buttons button { color: #777; }
 body.dark .chat-header-buttons button:hover { color: var(--text-light); }
 
 
-/* CAIXA DE MENSAGENS */
 .chat-box {
     flex-grow: 1;
     padding: 1.5rem;
@@ -1001,7 +962,6 @@ body.dark .chat-message.assistant {
     0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); }
 }
 
-/* ÁREA DE INPUT */
 .chat-input-area {
     display: flex;
     padding: 1rem;
@@ -1054,7 +1014,6 @@ body.dark #user-input {
     box-shadow: 0 4px 10px rgba(52, 152, 219, 0.5);
 }
 
-/* RESPOSTAS RÁPIDAS */
 .quick-replies {
     display: flex;
     flex-wrap: wrap;
@@ -1075,4 +1034,81 @@ body.dark #user-input {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-2px);
+}
+
+/* --- ESTILO ATUALIZADO PARA NOTIFICAÇÃO PROATIVA --- */
+.chat-proactive-notification {
+    position: absolute;
+    bottom: 0;
+    right: 85px;
+    background: var(--dark-card-bg);
+    color: var(--text-light);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    max-width: 280px;
+    
+    /* Usando Flexbox para alinhar texto e botão */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    
+    /* Adicione esta linha para alinhar os itens à esquerda */
+    align-items: flex-start; 
+    
+    /* Animação */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    pointer-events: none;
+}
+
+body:not(.dark) .chat-proactive-notification {
+    background: var(--light-card-bg);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-light);
+}
+
+.chat-proactive-notification.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.chat-proactive-notification span {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.proactive-ask-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.proactive-ask-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.chat-proactive-notification::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: -8px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid var(--dark-card-bg);
+}
+
+body:not(.dark) .chat-proactive-notification::after {
+    border-left-color: var(--light-card-bg);
 }

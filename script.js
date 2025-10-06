@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Animação acontece só uma vez
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- LÓGICA DO CHATBOT (CORRIGIDA COM DIAGNÓSTICO) ---
+  // --- LÓGICA DO CHATBOT ---
   const chatContainer = document.querySelector('.chat-container');
   const chatOpenBtn = document.querySelector('.chat-open-btn');
   const chatCloseBtn = document.querySelector('.chat-close-btn');
@@ -259,24 +259,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById('send-btn');
 
   let threadId = null;
-const apiUrl = 'https://api.matheussilvano.dev/ask';
+  const apiUrl = 'https://api.matheussilvano.dev/ask';
+  // const apiUrl = 'http://127.0.0.1:8000/ask';
 
   chatBox.addEventListener('click', (e) => {
     if (e.target.classList.contains('quick-reply-btn')) {
         const question = e.target.innerText;
-        userInput.value = question;
-        handleSendMessage();
-        const quickRepliesContainer = document.querySelector('.quick-replies');
-        if (quickRepliesContainer) {
-            quickRepliesContainer.remove();
-        }
+        handleSendMessage(question);
     }
   });
 
   chatOpenBtn.addEventListener('click', () => chatContainer.classList.toggle('open'));
-  
   chatCloseBtn.addEventListener('click', () => chatContainer.classList.remove('open'));
-
   chatFullscreenBtn.addEventListener('click', () => {
       chatContainer.classList.toggle('fullscreen');
       const icon = chatFullscreenBtn.querySelector('i');
@@ -311,12 +305,21 @@ const apiUrl = 'https://api.matheussilvano.dev/ask';
       chatBox.scrollTop = chatBox.scrollHeight;
   };
 
-  const handleSendMessage = async () => {
-      const question = userInput.value.trim();
+  const handleSendMessage = async (questionOverride = null) => {
+      const question = questionOverride || userInput.value.trim();
       if (!question) return;
 
       addMessage(question, 'user');
-      userInput.value = '';
+      
+      if (!questionOverride) {
+          userInput.value = '';
+      }
+
+      const quickRepliesContainer = document.querySelector('.quick-replies');
+      if (quickRepliesContainer) {
+          quickRepliesContainer.remove();
+      }
+
       showTypingIndicator();
 
       let assistantMessageParagraph = null;
@@ -324,36 +327,21 @@ const apiUrl = 'https://api.matheussilvano.dev/ask';
       try {
           const response = await fetch(apiUrl, {
               method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                  question: question,
-                  thread_id: threadId
-              }),
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ question: question, thread_id: threadId }),
           });
 
-          if (!response.ok) {
-              throw new Error('Erro na API: ' + response.statusText);
-          }
+          if (!response.ok) throw new Error('Erro na API: ' + response.statusText);
 
-          console.log("Iniciando processamento do stream...");
           const reader = response.body.getReader();
           const decoder = new TextDecoder();
           let fullResponse = '';
-          let chunkCount = 0;
 
           while (true) {
               const { done, value } = await reader.read();
-              if (done) {
-                  console.log("Stream finalizado.");
-                  break;
-              }
+              if (done) break;
               
-              chunkCount++;
               const chunk = decoder.decode(value, { stream: true });
-              console.log(`Chunk ${chunkCount} recebido:`, chunk);
-
               const lines = chunk.split('\n\n').filter(line => line.trim() !== '');
 
               for (const line of lines) {
@@ -366,48 +354,130 @@ const apiUrl = 'https://api.matheussilvano.dev/ask';
                               threadId = data.data;
                           } else if (data.event === 'text_chunk') {
                               if (!assistantMessageParagraph) {
-                                  const typingIndicator = chatBox.querySelector('.typing-indicator');
-                                  if (typingIndicator) {
-                                     typingIndicator.remove();
-                                  }
-                                  
-                                  const messageElement = document.createElement('div');
-                                  messageElement.classList.add('chat-message', 'assistant');
+                                  chatBox.querySelector('.typing-indicator')?.remove();
+                                  const msgElement = document.createElement('div');
+                                  msgElement.classList.add('chat-message', 'assistant');
                                   assistantMessageParagraph = document.createElement('p');
-                                  messageElement.appendChild(assistantMessageParagraph);
-                                  chatBox.appendChild(messageElement);
+                                  msgElement.appendChild(assistantMessageParagraph);
+                                  chatBox.appendChild(msgElement);
                               }
-                              
                               fullResponse += data.data;
                               assistantMessageParagraph.innerHTML = fullResponse
                                   .replace(/\n/g, '<br>')
-                                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-                              
+                                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                               chatBox.scrollTop = chatBox.scrollHeight;
+                          } else if (data.event === 'tool_call' && data.data.name === 'navigateToSection') {
+                              const sectionId = data.data.arguments.sectionId;
+                              document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                           }
                       } catch (e) {
-                          console.error("Erro ao processar JSON do chunk:", dataStr, e);
+                          console.error("Erro ao processar JSON:", dataStr, e);
                       }
                   }
               }
           }
-
       } catch (error) {
-          console.error("Falha ao contatar a API do assistente:", error);
-          const typingIndicator = chatBox.querySelector('.typing-indicator');
-          if (typingIndicator) {
-             typingIndicator.remove();
-          }
-          addMessage("Desculpe, não consegui me conectar ao meu cérebro. Tente novamente mais tarde.", 'assistant');
+          console.error("Falha ao contatar a API:", error);
+          chatBox.querySelector('.typing-indicator')?.remove();
+          addMessage("Desculpe, não consegui me conectar. Tente novamente mais tarde.", 'assistant');
       }
   };
 
-  sendBtn.addEventListener('click', handleSendMessage);
+  sendBtn.addEventListener('click', () => handleSendMessage());
   userInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-          handleSendMessage();
+      if (e.key === 'Enter') handleSendMessage();
+  });
+
+  // --- LÓGICA DE ENGAJAMENTO PROATIVO ---
+  function showProactiveNotification(notificationText, question) {
+      const triggerWrapper = document.querySelector('.chat-trigger-wrapper');
+      if (!triggerWrapper) return;
+
+      triggerWrapper.querySelector('.chat-proactive-notification')?.remove();
+
+      const notification = document.createElement('div');
+      notification.className = 'chat-proactive-notification';
+      
+      const textSpan = document.createElement('span');
+      textSpan.textContent = notificationText;
+      
+      const actionButton = document.createElement('button');
+      actionButton.className = 'proactive-ask-btn';
+      actionButton.textContent = 'Perguntar à IA';
+      
+      notification.appendChild(textSpan);
+      notification.appendChild(actionButton);
+      triggerWrapper.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('visible'), 100);
+
+      const removeNotification = () => {
+          notification.classList.remove('visible');
+          setTimeout(() => notification.remove(), 500);
+      };
+
+      const notificationTimeout = setTimeout(removeNotification, 10000);
+
+      actionButton.addEventListener('click', (e) => {
+          e.stopPropagation();
+          clearTimeout(notificationTimeout);
+          chatContainer.classList.add('open');
+          handleSendMessage(question);
+          removeNotification();
+      });
+  }
+
+  const proactiveSections = {
+      'about': {
+          notificationText: "Percebi que você está lendo sobre mim. Quer saber mais?",
+          question: "Qual é a sua principal motivação na carreira?",
+          triggered: false
+      },
+      'tech': {
+          notificationText: "Percebi que está vendo as tecnologias que domino. Quer detalhes?",
+          question: "Como você aplica o Python em seus projetos práticos?",
+          triggered: false
+      },
+      'projects': {
+          notificationText: "Percebi que você está vendo meus projetos. Quer saber mais sobre algum deles?",
+          question: "Me fale em detalhes sobre o projeto 'Cognita Suite'.",
+          triggered: false
+      },
+      'experience': {
+          notificationText: "Percebi que está vendo minha trajetória profissional. Alguma dúvida?",
+          question: "Quais são suas principais responsabilidades na Dígitro?",
+          triggered: false
+      },
+      'contact': {
+          notificationText: "Percebi que chegou na seção de contato. Prefere tirar uma dúvida por aqui?",
+          question: "Quais são as melhores formas de entrar em contato para oportunidades profissionais?",
+          triggered: false
       }
+  };
+
+  const proactiveObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          const sectionId = entry.target.id;
+          const sectionConfig = proactiveSections[sectionId];
+          if (!sectionConfig) return;
+
+          if (entry.isIntersecting && !sectionConfig.triggered) {
+              sectionConfig.timer = setTimeout(() => {
+                  if (!chatContainer.classList.contains('open')) {
+                      showProactiveNotification(sectionConfig.notificationText, sectionConfig.question);
+                  }
+                  sectionConfig.triggered = true;
+                  proactiveObserver.unobserve(entry.target);
+              }, 5000);
+          } else {
+              clearTimeout(sectionConfig.timer);
+          }
+      });
+  }, { threshold: 0.6 });
+
+  Object.keys(proactiveSections).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) proactiveObserver.observe(el);
   });
   
   // --- ANIMAÇÃO DE FUNDO SEGUINDO O MOUSE ---
