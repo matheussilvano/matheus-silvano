@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       project3_contrib: "Construi a API com FastAPI e autenticação, além da geração customizada de dados.",
       project4_title: "Removedor de Pontos do CNPJ",
       project4_desc: "Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 300 usuários.",
-      project4_impact: "300+ usuários ativos na Web Store, economizando ~20s por cópia.",
+      project4_impact: "300+ usuários ativos e nota 5 estrelas na Web Store, economizando ~20s por cópia.",
       project4_contrib: "Criei a extensão end-to-end, UI simples e publicação na Chrome Web Store.",
       view_webstore_button: "Ver na Web Store",
       project_suaclinica_desc: "Plataforma inteligente desenvolvida no Techstars Startup Weekend Health Floripa 2025 para automatizar agendamentos e atendimentos em clínicas de saúde, reduzindo etapas operacionais e erros manuais. Backend em Python (FastAPI) integrado ao n8n para orquestrar fluxos automatizados, diminuindo tarefas repetitivas e aumentando a eficiência do time. Utiliza modelos da OpenAI para entender mensagens em linguagem natural — inclusive por voz — e realizar agendamentos automáticos via WhatsApp, tornando a jornada do paciente mais ágil, humanizada e orientada por dados.",
@@ -92,6 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_whatsapp: "(48) 99858-4035",
       contact_linkedin: "LinkedIn",
       footer_text: "© 2024 Matheus Silvano. Todos os direitos reservados.",
+      interview_ia_button: "Entreviste minha IA",
+      radar_title: "Stack Atual",
+      radar_proficient: "Tenho Proficiência",
+      radar_learning: "Estudando Agora",
+      radar_on_radar: "No Radar",
       courses_page_title: "Cursos & Certificações",
       courses_page_subtitle: "Uma visão geral das trilhas de estudo que fortalecem minha base em Python, IA, dados, back-end, DevOps e segurança.",
       courses_scroll: "Ver cursos",
@@ -189,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
       project3_contrib: "Built the FastAPI service with auth plus customizable data generation.",
       project4_title: "CNPJ Dot Remover",
       project4_desc: "Chrome extension that simplifies copying formatted CNPJs. Currently used by over 300 people.",
-      project4_impact: "300+ active Web Store users, saving ~20s per copy.",
+      project4_impact: "300+ active users and 5-star rating in the Web Store, saving ~20s per copy.",
       project4_contrib: "Created the extension end-to-end, lightweight UI, and Chrome Web Store publish.",
       view_webstore_button: "View on Web Store",
       project_suaclinica_desc: "Smart platform built at Techstars Startup Weekend Health Floripa 2025 to automate scheduling and service in health clinics, reducing operational steps and manual errors. Python (FastAPI) backend integrated with n8n to orchestrate automated flows, cutting repetitive tasks and boosting team efficiency. Uses OpenAI models to understand natural-language and voice messages and make automatic WhatsApp bookings, making the patient journey faster, more human, and data-driven.",
@@ -231,6 +236,11 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_whatsapp: "(48) 99858-4035",
       contact_linkedin: "LinkedIn",
       footer_text: "© 2024 Matheus Silvano. All rights reserved.",
+      interview_ia_button: "Interview my AI",
+      radar_title: "Current Stack",
+      radar_proficient: "Proficient",
+      radar_learning: "Learning Now",
+      radar_on_radar: "On My Radar",
       courses_page_title: "Courses & Certifications",
       courses_page_subtitle: "An overview of the study paths that strengthen my foundation in Python, AI, data, back-end, DevOps, and security.",
       courses_scroll: "View courses",
@@ -327,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
       project3_contrib: "Construí la API con FastAPI y autenticación, además de la generación personalizada de datos.",
       project4_title: "Removedor de Puntos del CNPJ",
       project4_desc: "Extensión para Chrome que simplifica copiar CNPJs formateados. Actualmente con más de 300 usuarios.",
-      project4_impact: "300+ usuarios activos en la Web Store, ahorrando ~20s por copia.",
+      project4_impact: "300+ usuarios activos y nota 5 estrellas en la Web Store, ahorrando ~20s por copia.",
       project4_contrib: "Creé la extensión de punta a punta, UI simple y publicación en la Chrome Web Store.",
       view_webstore_button: "Ver en la Web Store",
       project_suaclinica_desc: "Plataforma inteligente creada en el Techstars Startup Weekend Health Floripa 2025 para automatizar turnos y atenciones en clínicas de salud, reduciendo pasos operativos y errores manuales. Backend en Python (FastAPI) integrado con n8n para orquestar flujos automatizados, disminuyendo tareas repetitivas y aumentando la eficiencia del equipo. Usa modelos de OpenAI para entender mensajes en lenguaje natural —incluso por voz— y realizar agendamientos automáticos vía WhatsApp, haciendo el recorrido del paciente más ágil, humano y orientado por datos.",
@@ -369,6 +379,11 @@ document.addEventListener("DOMContentLoaded", () => {
       contact_whatsapp: "(48) 99858-4035",
       contact_linkedin: "LinkedIn",
       footer_text: "© 2024 Matheus Silvano. Todos los derechos reservados.",
+      interview_ia_button: "Entrevista a mi IA",
+      radar_title: "Stack Actual",
+      radar_proficient: "Tengo Dominio",
+      radar_learning: "Estudiando Ahora",
+      radar_on_radar: "En el Radar",
       courses_page_title: "Cursos y Certificaciones",
       courses_page_subtitle: "Una vista general de las rutas de estudio que fortalecen mi base en Python, IA, datos, back-end, DevOps y seguridad.",
       courses_scroll: "Ver cursos",
@@ -719,6 +734,19 @@ document.addEventListener("DOMContentLoaded", () => {
   sendBtn.addEventListener('click', () => handleSendMessage());
   userInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') handleSendMessage();
+  });
+
+  // --- BOTÕES QUE ABREM O CHAT E DISPARAM PERGUNTAS ---
+  const chatTriggerButtons = document.querySelectorAll(".chat-trigger-btn");
+  const openChatAndAsk = (question) => {
+    if (chatContainer) chatContainer.classList.add("open");
+    if (question) handleSendMessage(question);
+  };
+  chatTriggerButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const q = btn.dataset.question || "";
+      openChatAndAsk(q);
+    });
   });
 
   // --- LÓGICA DE ENGAJAMENTO PROATIVO ---

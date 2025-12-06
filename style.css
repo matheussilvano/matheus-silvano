@@ -429,16 +429,16 @@ body.dark .impact-item p { color: #9ca3af; }
 
 .featured-projects {
     margin-bottom: 2.5rem;
-    background: var(--light-card-bg);
-    border: 1px solid var(--border-light);
+    background: linear-gradient(135deg, rgba(52,152,219,0.08), rgba(52,152,219,0.02));
+    border: 1px solid rgba(52, 152, 219, 0.3);
     border-radius: 14px;
-    padding: 1.5rem;
-    box-shadow: var(--shadow-light);
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(52, 152, 219, 0.15);
 }
 body.dark .featured-projects {
-    background: var(--dark-card-bg);
-    border-color: var(--border-dark);
-    box-shadow: var(--shadow-dark);
+    background: linear-gradient(135deg, rgba(52,152,219,0.18), rgba(52,152,219,0.05));
+    border-color: rgba(52, 152, 219, 0.4);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
 .featured-projects h3 {
     margin-bottom: 1rem;
@@ -452,13 +452,13 @@ body.dark .featured-projects {
 }
 .featured-card {
     padding: 1rem;
-    border: 1px dashed var(--border-light);
+    border: 1px solid rgba(52, 152, 219, 0.25);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
-body.dark .featured-card { border-color: var(--border-dark); }
+body.dark .featured-card { border-color: rgba(52, 152, 219, 0.35); }
 .featured-card h4 { margin-bottom: 0.5rem; }
 .featured-card p { margin-bottom: 1rem; color: #52606d; }
 body.dark .featured-card p { color: #9ca3af; }
@@ -467,9 +467,9 @@ body.dark .featured-card p { color: #9ca3af; }
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    border: 1px solid var(--border-light);
+    border: 1px solid rgba(52, 152, 219, 0.25);
 }
-body.dark .featured-image { border-color: var(--border-dark); }
+body.dark .featured-image { border-color: rgba(52, 152, 219, 0.35); }
 
 .summary-card {
     max-width: 780px;
@@ -1471,6 +1471,36 @@ body.dark .courses-filter-tag {
     border-color: var(--border-dark);
     background: var(--dark-card-bg);
 }
+
+.tech-radar .radar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.radar-card {
+    background: var(--light-card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-light);
+}
+body.dark .radar-card {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-dark);
+}
+.radar-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+.radar-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.5;
+    color: #52606d;
+}
+body.dark .radar-card ul { color: #c3ccd7; }
 
 .courses-grid {
     display: grid;
