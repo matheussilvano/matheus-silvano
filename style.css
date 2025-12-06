@@ -248,9 +248,9 @@ body.dark #darkModeToggle {
 
 /* --- GRID DE PROJETOS (MASONRY/PINTEREST) --- */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    display: block;
+    column-count: 3;
+    column-gap: 2rem;
 }
 
 .card {
@@ -260,7 +260,7 @@ body.dark #darkModeToggle {
     overflow: hidden;
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     border: 1px solid var(--border-light);
-    
+
     display: inline-block;
     width: 100%;
     margin-bottom: 2rem;
@@ -483,7 +483,7 @@ body.dark .carousel-button {
 }
 
 /* --- CARROSSEL DE TECNOLOGIAS --- */
-/* --- CARROSSEL DE TECNOLOGIAS --- */
+/* DESKTOP / TABLET: carrossel animado */
 .tech-carousel-container {
     position: relative;
     max-width: 900px;
@@ -494,31 +494,36 @@ body.dark .carousel-button {
     overflow: hidden;
     position: relative;
     background: transparent;
-    /* efeito de fade nas laterais só no desktop */
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 15%,
+        #000 85%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 15%,
+        #000 85%,
+        transparent
+    );
 }
 
 .tech-slide-track {
     display: flex;
     align-items: center;
-    /* deixa o conteúdo se ajustar ao tamanho dos itens */
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: tech-scroll 30s linear infinite;
 }
 
 .tech-carousel-slider:hover .tech-slide-track {
     animation-play-state: paused;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* move aproximadamente a metade dos itens pra dar looping suave */
-        transform: translateX(-50%);
-    }
+@keyframes tech-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .tech-slide {
@@ -529,7 +534,7 @@ body.dark .carousel-button {
     justify-content: center;
     padding: 10px;
     perspective: 100px;
-    margin: 0 40px; /* Espaçamento entre logos no desktop */
+    margin: 0 40px;
     flex-shrink: 0;
 }
 
@@ -540,16 +545,15 @@ body.dark .carousel-button {
     filter: grayscale(1);
     opacity: 0.7;
 }
-body.dark .tech-slide img {
-    opacity: 0.6;
-}
+body.dark .tech-slide img { opacity: 0.6; }
+
 .tech-slide img:hover {
     transform: scale(1.2);
     filter: grayscale(0);
     opacity: 1;
 }
 
-/* --- AJUSTES MOBILE PARA O CARROSSEL --- */
+/* MOBILE: logos em grid, sem animação */
 @media (max-width: 768px) {
     .tech-carousel-container {
         max-width: 100%;
@@ -557,24 +561,21 @@ body.dark .tech-slide img {
     }
 
     .tech-carousel-slider {
-        /* remove o fade nas laterais no mobile pra não “comer” os ícones */
         -webkit-mask-image: none;
         mask-image: none;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scrollbar-width: none; /* Firefox */
-    }
-    .tech-carousel-slider::-webkit-scrollbar {
-        display: none; /* Chrome / Safari */
+        overflow: visible;
     }
 
     .tech-slide-track {
-        animation: none;          /* sem animação automática no mobile */
-        width: max-content;       /* só o necessário */
+        animation: none;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 
     .tech-slide {
-        margin: 0 16px;           /* menos espaço entre logos */
+        margin: 0.5rem;
         width: 70px;
         height: 70px;
     }
@@ -584,23 +585,6 @@ body.dark .tech-slide img {
     }
 }
 
-body.dark .tech-slide img {
-    opacity: 0.6;
-}
-.tech-slide img:hover {
-    transform: scale(1.2);
-    filter: grayscale(0);
-    opacity: 1;
-}
-.tech-description {
-    text-align: center;
-    max-width: 800px;
-    margin: 3rem auto 0;
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-/* --- FOOTER --- */
 .footer {
     text-align: center;
     padding: 2rem;
@@ -612,16 +596,22 @@ body.dark .footer {
     border-top: 1px solid var(--border-dark);
 }
 
+/* --- RESPONSIVIDADE GERAL --- */
+@media (max-width: 1024px) {
+    .project-grid {
+        column-count: 2;
+        column-gap: 2rem;
+    }
+}
 
-/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     .hero-title { font-size: 2.5rem; }
     .hero-subtitle { font-size: 1.2rem; }
     .container { padding: 4rem 1rem; }
 
-    .project-grid { 
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .project-grid {
+        column-count: 1;
+        column-gap: 1.5rem;
     }
 
     .timeline::after { left: 15px; }
@@ -798,7 +788,6 @@ body.dark .contact-item {
     font-weight: 500;
 }
 
-
 /* --- ANIMAÇÃO DE SCROLL (FADE-IN & SLIDE-UP) --- */
 .reveal {
     opacity: 0;
@@ -972,7 +961,6 @@ body.dark .chat-header {
 .chat-close-btn { font-size: 1.8rem; }
 body.dark .chat-header-buttons button { color: #777; }
 body.dark .chat-header-buttons button:hover { color: var(--text-light); }
-
 
 .chat-box {
     flex-grow: 1;
@@ -1177,7 +1165,6 @@ body:not(.dark) .chat-proactive-notification::after {
 }
 
 /* --- PÁGINA DE CURSOS & CERTIFICAÇÕES --- */
-
 .hero.hero-inner {
     min-height: 60vh;
     display: flex;

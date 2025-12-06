@@ -19,17 +19,18 @@
             <div id="languageSelector" class="language-selector">
                 <img src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
                 <img src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
+                <img src="spain-flag.png" alt="Bandeira da Espanha" class="lang-flag" data-lang="es">
             </div>
             <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
         </div>
 
         <div class="hero-content">
             <h1 class="hero-title">Matheus Silvano</h1>
-            <p class="hero-subtitle" data-translate="hero_subtitle">Desenvolvedor IA & Back-end</p>
+            <p class="hero-subtitle" data-translate="hero_subtitle">Desenvolvedor IA &amp; Back-end</p>
             <div class="hero-buttons">
                 <a href="https://github.com/matheussilvano" target="_blank" class="btn btn-secondary">GitHub</a>
                 <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="btn btn-secondary">LinkedIn</a>
-                <a href="cursos.html" class="btn btn-secondary">Cursos & Certificações</a>
+                <a href="cursos.html" class="btn btn-secondary" data-translate="courses_button">Cursos &amp; Certificações</a>
                 <a href="cv_matheus_silvano_pereira.pdf" download id="cvDownloader" class="btn btn-primary" data-translate="download_cv_button">Baixar Currículo</a>
             </div>
         </div>
@@ -43,47 +44,49 @@
     </header>
 
     <main>
-        <section id="about" class="section-fullpage">
-            <div class="about-content reveal">
-                <div class="about-image-container">
+        <!-- SOBRE MIM -->
+        <section id="about" class="section section-fullpage">
+            <div class="container about-content">
+                <div class="about-image-container reveal">
                     <img src="matheus-silvano.png" alt="Foto de Matheus Silvano">
                 </div>
                 <div class="about-text-container">
-                    <h2 class="section-title" data-translate="about_me_title">Sobre Mim</h2>
-                    <p data-translate="about_me_p1">Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na Universidade Federal de Santa Catarina. Minha atuação é focada na pesquisa e implementação de modelos de Inteligência Artificial, com forte base em Machine Learning e NLP.</p>
-                    <p data-translate="about_me_p2">Sou motivado por resolver desafios reais e gerar impacto positivo através da aplicação prática da IA, utilizando diariamente ferramentas como Python, Pandas, Scikit-learn e TensorFlow.</p>
+                    <h2 class="section-title reveal" data-translate="about_me_title">Sobre Mim</h2>
+                    <p class="reveal" data-translate="about_me_p1">
+                        Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na UFSC. 
+                        Atuo com pesquisa, desenvolvimento e avaliação de modelos de linguagem, 
+                        focando em soluções que geram impacto real em produtos e clientes.
+                    </p>
+                    <p class="reveal" data-translate="about_me_p2">
+                        Tenho experiência em Python, FastAPI, machine learning, processamento de linguagem natural e 
+                        visão computacional. Gosto de unir teoria e prática, construindo APIs, automações e ferramentas 
+                        que ajudam pessoas e times a trabalharem melhor.
+                    </p>
                 </div>
             </div>
             <a href="#tech" class="scroll-down-arrow" aria-label="Rolar para a seção de Tecnologias">
-                <span class="scroll-text">Tecnologias</span>
+                <span class="scroll-text" data-translate="tech_scroll">Tecnologias</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
                     <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
                 </svg>
             </a>
         </section>
 
-        <section id="tech" class="section-fullpage">
-            <div class="container reveal">
-                <h2 class="section-title">Tecnologias</h2>
-                <div class="tech-carousel-container">
+        <!-- TECNOLOGIAS -->
+        <section id="tech" class="section">
+            <div class="container">
+                <h2 class="section-title reveal" data-translate="tech_title">Tecnologias</h2>
+
+                <div class="tech-carousel-container reveal">
                     <div class="tech-carousel-slider">
                         <div class="tech-slide-track">
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn"></div>
                             <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"></div>
@@ -91,8 +94,15 @@
                         </div>
                     </div>
                 </div>
-                <p class="tech-description reveal">
-                    Experiência prática com APIs REST usando <strong>Python</strong>, <strong>FastAPI</strong> e <strong>Django</strong>. Domínio em versionamento com <strong>Git</strong>, integração com bancos de dados (<strong>PostgreSQL</strong> e <strong>Oracle</strong>), e conhecimento em contêineres com <strong>Docker</strong>. Familiaridade com práticas de DevOps, atuação com stacks de IA, incluindo <strong>Scikit-learn</strong>, <strong>TensorFlow</strong>, <strong>PyTorch</strong>, <strong>OpenCV</strong>, <strong>pandas</strong>, <strong>NumPy</strong>, <strong>LangChain</strong> e <strong>spaCy</strong>, aplicando técnicas de machine learning, deep learning, processamento de linguagem natural e visão computacional em projetos práticos.
+
+                <p class="tech-description reveal" data-translate="tech_description">
+                    Experiência prática com APIs REST usando <strong>Python</strong>, <strong>FastAPI</strong> e <strong>Django</strong>. 
+                    Domínio em versionamento com <strong>Git</strong>, integração com bancos de dados 
+                    (<strong>PostgreSQL</strong> e <strong>Oracle</strong>), e conhecimento em contêineres com <strong>Docker</strong>. 
+                    Familiaridade com práticas de DevOps e stacks de IA, incluindo <strong>Scikit-learn</strong>, <strong>TensorFlow</strong>, 
+                    <strong>PyTorch</strong>, <strong>OpenCV</strong>, <strong>pandas</strong>, <strong>NumPy</strong>, 
+                    <strong>LangChain</strong> e <strong>spaCy</strong>, aplicando técnicas de machine learning, deep learning, 
+                    processamento de linguagem natural e visão computacional em projetos práticos.
                 </p>
             </div>
             <a href="#projects" class="scroll-down-arrow" aria-label="Rolar para a seção de Projetos">
@@ -104,6 +114,7 @@
         </section>
 
         <div class="container">
+            <!-- PROJETOS -->
             <section id="projects" class="section">
                 <h2 class="section-title reveal" data-translate="projects_title">Projetos</h2>
                 <div class="project-grid">
@@ -115,13 +126,16 @@
                         <div class="card-content">
                             <span class="card-badge">Hackathon</span>
                             <h3 class="card-title">Cognita Suite</h3>
-                            <p>Aplicação web feita em 24 horas, desenvolvida para a trilha de Educação do Hackathon AI Challenge da SECCOM UFSC + DOOOR. A suíte visa potencializar os estudos de alunos, oferecendo ferramentas inteligentes para correção de redações e consulta a materiais de estudo, tudo impulsionado por modelos de linguagem de ponta.</p>
+                            <p data-translate="project_cognita_desc">
+                                Aplicação web feita em 24 horas, desenvolvida para a trilha de Educação do Hackathon AI Challenge da SECCOM UFSC + DOOOR. 
+                                A suíte visa potencializar os estudos de alunos, oferecendo ferramentas inteligentes para correção de redações e consulta a 
+                                materiais de estudo, tudo impulsionado por modelos de linguagem de ponta.
+                            </p>
                             <div class="tech-stack">
-                                <span>Python</span><span>FastAPI</span><span>LangChain</span>
+                                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>OpenAI</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://front-end-hackathon-zeta.vercel.app/" target="_blank" class="btn btn-primary" data-translate="test_online_button">Testar Online</a>
-                                <a href="https://github.com/matheussilvano/hackathon-ufsc-ia" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
+                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +146,9 @@
                         </div>
                         <div class="card-content">
                             <h3 class="card-title" data-translate="project1_title">Real Time Face Recognizer</h3>
-                            <p data-translate="project1_desc">Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.</p>
+                            <p data-translate="project1_desc">
+                                Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.
+                            </p>
                             <div class="tech-stack">
                                 <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Docker</span>
                             </div>
@@ -148,7 +164,9 @@
                         </div>
                         <div class="card-content">
                             <h3 class="card-title" data-translate="project2_title">Toxic Content Detector</h3>
-                            <p data-translate="project2_desc">Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.</p>
+                            <p data-translate="project2_desc">
+                                Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.
+                            </p>
                             <div class="tech-stack">
                                 <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span>
                             </div>
@@ -165,7 +183,9 @@
                         </div>
                         <div class="card-content">
                             <h3 class="card-title" data-translate="project3_title">Fake Data API</h3>
-                            <p data-translate="project3_desc">Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.</p>
+                            <p data-translate="project3_desc">
+                                Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.
+                            </p>
                             <div class="tech-stack">
                                 <span>Python</span><span>FastAPI</span><span>Docker</span>
                             </div>
@@ -174,14 +194,16 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card reveal">
                         <div class="card-image-container">
-                            <img src="cnpj-extension.jpeg" alt="Imagem da extensão Removedor de Pontos do CNPJ" class="card-image">
+                            <img src="cnpj-extension.jpeg" alt="Imagem do projeto Removedor de Pontos do CNPJ" class="card-image">
                         </div>
                         <div class="card-content">
                             <h3 class="card-title" data-translate="project4_title">Removedor de Pontos do CNPJ</h3>
-                            <p data-translate="project4_desc">Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.</p>
+                            <p data-translate="project4_desc">
+                                Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.
+                            </p>
                             <div class="tech-stack">
                                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
                             </div>
@@ -192,7 +214,7 @@
                         </div>
                     </div>
 
-                    <!-- Novo projeto: Sua Clínica -->
+                    <!-- Sua Clínica -->
                     <div class="card reveal">
                         <div class="card-image-container">
                             <img src="sua-clinica.jpeg" alt="Imagem do projeto Sua Clínica" class="card-image">
@@ -200,7 +222,7 @@
                         <div class="card-content">
                             <span class="card-badge">Hackathon</span>
                             <h3 class="card-title">Sua Clínica</h3>
-                            <p>
+                            <p data-translate="project_suaclinica_desc">
                                 Plataforma inteligente desenvolvida no Techstars Startup Weekend Health Floripa 2025 para automatizar
                                 agendamentos e atendimentos em clínicas de saúde, reduzindo etapas operacionais e erros manuais.
                                 Backend em Python (FastAPI) integrado ao n8n para orquestrar fluxos automatizados, diminuindo tarefas
@@ -215,12 +237,12 @@
                                 <span>OpenAI</span>
                             </div>
                             <div class="card-actions">
-                                <a href="#" class="btn btn-secondary">Em breve</a>
+                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Novo projeto: PROMOOVE -->
+                    <!-- PROMOOVE -->
                     <div class="card reveal">
                         <div class="card-image-container">
                             <img src="promoove.png" alt="Imagem do projeto PROMOOVE" class="card-image">
@@ -228,27 +250,26 @@
                         <div class="card-content">
                             <span class="card-badge">Hackathon</span>
                             <h3 class="card-title">PROMOOVE</h3>
-                            <p>
+                            <p data-translate="project_promoove_desc">
                                 HRTech focada em transformar processos de seleção e gestão de talentos por meio de IA. A solução nasce
                                 de um problema real: recrutamentos longos, pouca visibilidade interna e dificuldade de enxergar quem as
                                 pessoas realmente são além do currículo. Analisa histórias, competências e trajetórias de forma
                                 humanizada, gerando insights que apoiam decisões mais justas e eficientes. O projeto envolve pesquisa
-                                de mercado, construção da solução, matriz RPU e prototipação com backend em Python/FastAPI e modelos da
+                                de mercado, desenho da solução, matriz RPU e prototipação com backend em Python/FastAPI e modelos da
                                 OpenAI.
                             </p>
                             <div class="tech-stack">
                                 <span>Python</span>
                                 <span>FastAPI</span>
                                 <span>OpenAI</span>
-                                <span>Product Discovery</span>
                             </div>
                             <div class="card-actions">
-                                <a href="#" class="btn btn-secondary">Em breve</a>
+                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Novo projeto: Mooose -->
+                    <!-- Mooose -->
                     <div class="card reveal">
                         <div class="card-image-container">
                             <img src="mooose.png" alt="Imagem do projeto Mooose" class="card-image">
@@ -256,25 +277,20 @@
                         <div class="card-content">
                             <span class="card-badge">Startup</span>
                             <h3 class="card-title">Mooose</h3>
-                            <p>
-                                Ecossistema de soluções em IA com foco inicial em educação e correção de redações do ENEM para estudantes
-                                de todo o Brasil. Idealizei, validei e lancei a plataforma <strong>mooose.com.br</strong>, que oferece
-                                correção automática com feedback imediato por competência, reduzindo o tempo de retorno de dias para
-                                segundos. Atuo no desenho da jornada do usuário, desenvolvimento de front-end e back-end, integração com
-                                modelos de linguagem da OpenAI, experimentos de qualidade (comparando modelos em qualidade, latência e
-                                custo) e monitoramento de uso via Grafana conectado ao Postgres para orientar decisões de produto e
-                                estudos de monetização.
+                            <p data-translate="project_mooose_desc">
+                                Plataforma gratuita de correção de redações para o ENEM, focada em acessibilidade e impacto social. 
+                                Permite que estudantes enviem redações em PDF, foto ou texto e recebam feedback detalhado por competência, 
+                                utilizando modelos de linguagem para análise semântica e geração de comentários claros e didáticos. 
+                                Inclui painel de acompanhamento, ranking de redações e integrações com ferramentas de analytics.
                             </p>
                             <div class="tech-stack">
                                 <span>Python</span>
                                 <span>FastAPI</span>
-                                <span>OpenAI</span>
                                 <span>PostgreSQL</span>
-                                <span>Grafana</span>
-                                <span>JavaScript</span>
+                                <span>OpenAI</span>
                             </div>
                             <div class="card-actions">
-                                <a href="https://www.mooose.com.br" target="_blank" class="btn btn-primary">Acessar Mooose</a>
+                                <a href="https://www.mooose.com.br" target="_blank" class="btn btn-primary" data-translate="open_mooose_button">Acessar Mooose</a>
                             </div>
                         </div>
                     </div>
@@ -282,54 +298,76 @@
                 </div>
             </section>
 
+            <!-- EXPERIÊNCIA -->
             <section id="experience" class="section">
                 <h2 class="section-title reveal" data-translate="experience_title">Experiência Profissional</h2>
                 <div class="timeline">
                     <div class="timeline-item reveal">
                         <div class="timeline-content">
-                            <h3 data-translate="exp1_title">Dígitro - Estagiário em Desenvolvimento de IA</h3>
                             <span class="timeline-date" data-translate="exp1_date">Abr 2025 - Atual</span>
-                            <p data-translate="exp1_desc">Desenvolvimento de programas implementando algoritmos de IA, pesquisa de novas aplicações e modelos, e tratamento de dados para criação de datasets.</p>
+                            <h3 data-translate="exp1_title">Dígitro - Estagiário em Desenvolvimento de IA</h3>
+                            <p data-translate="exp1_desc">
+                                Atuação no time de Pesquisa &amp; Desenvolvimento com foco em modelos de linguagem, 
+                                avaliação de LLMs e automação de diagnósticos de chamadas VoIP, construindo pipelines 
+                                de experimentação e métricas de qualidade.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="timeline-content">
-                            <h3 data-translate="exp2_title">Nexxera - Operador de Implantação</h3>
                             <span class="timeline-date" data-translate="exp2_date">Dez 2023 - Abr 2025</span>
-                            <p data-translate="exp2_desc">Suporte técnico a clientes, automação de processos com Shell Script/Python e análise de layouts de arquivos.</p>
+                            <h3 data-translate="exp2_title">Nexxera - Operador de Implantação</h3>
+                            <p data-translate="exp2_desc">
+                                Suporte técnico a clientes, automações com Shell Script/Python e análise de layouts de arquivos 
+                                para integração entre sistemas financeiros e bancários.
+                            </p>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="timeline-content">
-                            <h3 data-translate="exp3_title">Nexxera - Jovem Aprendiz (Implantação)</h3>
                             <span class="timeline-date" data-translate="exp3_date">Jan 2022 - Dez 2023</span>
-                            <p data-translate="exp3_desc">Primeiro contato com o mundo corporativo, realizando o suporte técnico e inserção de clientes na base da empresa.</p>
+                            <h3 data-translate="exp3_title">Nexxera - Jovem Aprendiz (Implantação)</h3>
+                            <p data-translate="exp3_desc">
+                                Primeiro contato com o ambiente corporativo, atuando com cadastro de clientes, 
+                                suporte à implantação de soluções e aprendizado dos processos de negócio da empresa.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- RECOMENDAÇÕES -->
             <section id="recommendations" class="section">
                 <h2 class="section-title reveal" data-translate="recommendations_title">Recomendações</h2>
                 <div class="carousel-container reveal">
                     <div class="carousel-track">
-                        <div class="carousel-card">
+                        <div class="carousel-card active">
                             <img src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
                             <h3>Edson Silva</h3>
                             <p class="role" data-translate="rec1_role">Presidente e fundador do Grupo Nexxees</p>
-                            <p class="text" data-translate="rec1_text">"Matheus, fico muito feliz por sua trajetória e por ter contribuído para o início de sua carreira. Grandes talentos seguirão novos rumos, e o mundo oferece grandes oportunidades. Parabéns, siga em frente e conquiste seus sonhos."</p>
+                            <p class="text" data-translate="rec1_text">
+                                "Matheus, fico muito feliz pela tua trajetória e por ter contribuído com o início da tua carreira.
+                                Grandes talentos seguirão novos caminhos, e o mundo oferece grandes oportunidades. Parabéns, siga em frente e conquiste teus sonhos."
+                            </p>
                         </div>
                         <div class="carousel-card">
                             <img src="robson-clemente.jpeg" alt="Foto de Robson Clemente" class="carousel-avatar">
                             <h3>Robson Clemente</h3>
                             <p class="role" data-translate="rec2_role">Gerente de Implantação - Nexxera</p>
-                            <p class="text" data-translate="rec2_text">"Obrigado pelo período em que esteve conosco. Desde o seu início como jovem aprendiz, você sempre demonstrou muito respeito e comprometimento. Você é um grande profissional e tem um futuro muito promissor."</p>
+                            <p class="text" data-translate="rec2_text">
+                                "Obrigada pelo tempo que esteve conosco. Desde o seu início como jovem aprendiz, você sempre demonstrou muito respeito
+                                e comprometimento. Você é um grande profissional e tem um futuro muito promissor."
+                            </p>
                         </div>
                         <div class="carousel-card">
                             <img src="junior-matos.jpeg" alt="Foto de Junior Matos" class="carousel-avatar">
                             <h3>Junior Manoel de Matos</h3>
                             <p class="role" data-translate="rec3_role">Tech Leader - Nexxera</p>
-                            <p class="text" data-translate="rec3_text">"Tive o prazer de ser Tech Lead durante toda a evolução do Matheus na Nexxera. Possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. Um grande profissional que terá um futuro brilhante."</p>
+                            <p class="text" data-translate="rec3_text">
+                                "Tive o prazer de ser Tech Lead durante toda a evolução do Matheus na Nexxera. 
+                                Possui muita facilidade de aprendizagem e sempre busca soluções com agilidade. 
+                                Um grande profissional que terá um futuro brilhante."
+                            </p>
                         </div>
                     </div>
                     <div class="carousel-buttons">
@@ -339,9 +377,12 @@
                 </div>
             </section>
 
+            <!-- CONTATO -->
             <section id="contact" class="section">
                 <h2 class="section-title reveal" data-translate="contact_title">Contato</h2>
-                <p class="contact-subtitle reveal" data-translate="contact_subtitle">Vamos conversar! Entre em contato comigo através dos canais abaixo.</p>
+                <p class="contact-subtitle reveal" data-translate="contact_subtitle">
+                    Vamos conversar! Entre em contato comigo através dos canais abaixo.
+                </p>
                 <div class="contact-links">
                     <a href="mailto:matheussilvano2005@gmail.com" class="contact-item reveal">
                         <i class="fas fa-envelope"></i>
@@ -363,15 +404,16 @@
     <footer class="footer">
         <p data-translate="footer_text">&copy; 2024 Matheus Silvano. Todos os direitos reservados.</p>
     </footer>
-    
+
+    <!-- CHAT -->
     <div class="chat-container">
         <div class="chat-header">
             <div class="chat-avatar">
                 <img src="assistant_logo.png" alt="Avatar do Assistente" class="chat-avatar-img">
             </div>
             <div class="chat-header-title">
-                <h3>Assistente Virtual</h3>
-                <span>Online</span>
+                <h3 data-translate="chat_title">Assistente Virtual</h3>
+                <span data-translate="chat_status">Online</span>
             </div>
             <div class="chat-header-buttons">
                 <button class="chat-fullscreen-btn" aria-label="Tela cheia">
@@ -382,16 +424,19 @@
         </div>
         <div class="chat-box" id="chat-box">
             <div class="chat-message assistant">
-                <p>Olá! 👋 Sou o assistente virtual do Matheus. Como posso ajudar você a conhecer mais sobre o trabalho dele?</p>
+                <p data-translate="chat_initial_message">
+                    Olá! 👋 Sou o assistente virtual do Matheus.
+                    Posso te ajudar com dúvidas sobre projetos, experiências ou tecnologias deste portfólio.
+                </p>
             </div>
             <div class="quick-replies">
-                <button class="quick-reply-btn">Qual sua experiência com IA?</button>
-                <button class="quick-reply-btn">Me fale sobre o projeto Toxic Content Detector.</button>
-                <button class="quick-reply-btn">Quais tecnologias você domina?</button>
+                <button class="quick-reply-btn" data-translate="chat_q1">Quais projetos você recomenda ver primeiro?</button>
+                <button class="quick-reply-btn" data-translate="chat_q2">Qual é sua experiência com IA e modelos de linguagem?</button>
+                <button class="quick-reply-btn" data-translate="chat_q3">Quais tecnologias você mais utiliza no dia a dia?</button>
             </div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+            <input type="text" id="user-input" placeholder="Digite sua pergunta..." data-translate="chat_input_placeholder">
             <button id="send-btn" aria-label="Enviar mensagem">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -399,12 +444,12 @@
     </div>
 
     <div class="chat-trigger-wrapper">
-        <span class="chat-cta-bubble">Converse comigo!</span>
+        <span class="chat-cta-bubble" data-translate="chat_cta_bubble">Converse comigo!</span>
         <button class="chat-open-btn" aria-label="Abrir chat">
             <img src="assistant_logo.png" alt="Abrir chat" class="chat-open-icon">
         </button>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
