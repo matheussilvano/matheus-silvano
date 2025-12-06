@@ -249,7 +249,7 @@ body.dark #darkModeToggle {
 /* --- GRID DE PROJETOS (MASONRY/PINTEREST) --- */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -292,6 +292,7 @@ body.dark .card {
 
 .card-content {
     padding: 1.5rem;
+    position: relative;
 }
 
 .card-badge {
@@ -482,46 +483,107 @@ body.dark .carousel-button {
 }
 
 /* --- CARROSSEL DE TECNOLOGIAS --- */
+/* --- CARROSSEL DE TECNOLOGIAS --- */
 .tech-carousel-container {
     position: relative;
-    max-width: 90%;
+    max-width: 900px;
     margin: 0 auto;
 }
+
 .tech-carousel-slider {
     overflow: hidden;
     position: relative;
     background: transparent;
-    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
-    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    /* efeito de fade nas laterais só no desktop */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
 }
+
 .tech-slide-track {
     display: flex;
-    width: calc(20 * 200px); /* 10 slides * 2 (duplicado) * 200px (largura + margem) */
+    align-items: center;
+    /* deixa o conteúdo se ajustar ao tamanho dos itens */
+    width: max-content;
     animation: scroll 30s linear infinite;
 }
+
 .tech-carousel-slider:hover .tech-slide-track {
     animation-play-state: paused;
 }
+
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-10 * 200px)); } /* Metade dos slides * (largura do slide + margem) */
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* move aproximadamente a metade dos itens pra dar looping suave */
+        transform: translateX(-50%);
+    }
 }
+
 .tech-slide {
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
     perspective: 100px;
-    margin: 0 50px; /* Espaçamento entre logos */
+    margin: 0 40px; /* Espaçamento entre logos no desktop */
+    flex-shrink: 0;
 }
+
 .tech-slide img {
-    width: 70px;
+    width: 60px;
+    max-width: 100%;
     transition: transform 0.3s;
     filter: grayscale(1);
     opacity: 0.7;
 }
+body.dark .tech-slide img {
+    opacity: 0.6;
+}
+.tech-slide img:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* --- AJUSTES MOBILE PARA O CARROSSEL --- */
+@media (max-width: 768px) {
+    .tech-carousel-container {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .tech-carousel-slider {
+        /* remove o fade nas laterais no mobile pra não “comer” os ícones */
+        -webkit-mask-image: none;
+        mask-image: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none; /* Firefox */
+    }
+    .tech-carousel-slider::-webkit-scrollbar {
+        display: none; /* Chrome / Safari */
+    }
+
+    .tech-slide-track {
+        animation: none;          /* sem animação automática no mobile */
+        width: max-content;       /* só o necessário */
+    }
+
+    .tech-slide {
+        margin: 0 16px;           /* menos espaço entre logos */
+        width: 70px;
+        height: 70px;
+    }
+
+    .tech-slide img {
+        width: 48px;
+    }
+}
+
 body.dark .tech-slide img {
     opacity: 0.6;
 }
@@ -557,7 +619,10 @@ body.dark .footer {
     .hero-subtitle { font-size: 1.2rem; }
     .container { padding: 4rem 1rem; }
 
-    .project-grid { column-count: 1; }
+    .project-grid { 
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
     .timeline::after { left: 15px; }
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
@@ -813,6 +878,7 @@ body.dark {
     bottom: 6.5rem;
     right: 2rem;
     width: 400px;
+    max-width: calc(100% - 2rem);
     height: 75vh;
     max-height: 650px;
     background: var(--light-bg);
@@ -1048,16 +1114,12 @@ body.dark #user-input {
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     max-width: 280px;
     
-    /* Usando Flexbox para alinhar texto e botão */
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
-    
-    /* Adicione esta linha para alinhar os itens à esquerda */
     align-items: flex-start; 
     
-    /* Animação */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -1248,4 +1310,64 @@ body.dark .course-provider {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+}
+
+/* --- MOBILE EXTRA (CELULAR BEM REDONDINHO) --- */
+@media (max-width: 600px) {
+    .hero {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .section-fullpage {
+        padding: 3rem 1.5rem;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 3rem 1.25rem;
+    }
+
+    .contact-links {
+        gap: 1rem;
+    }
+
+    .header-controls {
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .chat-trigger-wrapper {
+        bottom: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .chat-container {
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+        height: 65vh;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .chat-proactive-notification {
+        right: 1rem;
+        bottom: 5.5rem;
+        max-width: 260px;
+    }
+
+    .chat-proactive-notification::after {
+        right: 20px;
+    }
 }
