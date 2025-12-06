@@ -4,22 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Matheus Silvano | Portfólio</title>
+    <meta name="description" content="Portfólio de Matheus Silvano, desenvolvedor de IA e back-end. Projetos com LLMs, FastAPI, MLOps e automações em produção.">
+    <meta property="og:title" content="Matheus Silvano | IA & Back-end">
+    <meta property="og:description" content="Projetos com IA aplicada, APIs e automações em produção.">
+    <meta property="og:image" content="matheus-silvano.png">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Matheus Silvano Pereira",
+      "jobTitle": "AI & Back-end Developer",
+      "url": "https://teu-portfolio.com",
+      "sameAs": [
+        "https://github.com/matheussilvano",
+        "https://www.linkedin.com/in/matheussilvano/",
+        "https://www.mooose.com.br"
+      ]
+    }
+    </script>
 </head>
 <body>
 
     <header class="hero">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#about" data-translate="nav_about">Sobre</a></li>
+                <li><a href="#tech" data-translate="nav_tech">Tecnologias</a></li>
+                <li><a href="#projects" data-translate="nav_projects">Projetos</a></li>
+                <li><a href="#experience" data-translate="nav_experience">Experiência</a></li>
+                <li><a href="#recommendations" data-translate="nav_recommendations">Recomendações</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contato</a></li>
+            </ul>
+        </nav>
         <div class="header-controls">
             <div id="languageSelector" class="language-selector">
-                <img src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
-                <img src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
-                <img src="spain-flag.png" alt="Bandeira da Espanha" class="lang-flag" data-lang="es">
+                <img loading="lazy" src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
+                <img loading="lazy" src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
+                <img loading="lazy" src="spain-flag.png" alt="Bandeira da Espanha" class="lang-flag" data-lang="es">
             </div>
             <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
         </div>
@@ -27,6 +55,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Matheus Silvano</h1>
             <p class="hero-subtitle" data-translate="hero_subtitle">Desenvolvedor IA &amp; Back-end</p>
+            <p class="hero-pitch" data-translate="hero_pitch">Construo APIs, automações e sistemas com IA que reduzem trabalho manual e geram insights em produção.</p>
             <div class="hero-buttons">
                 <a href="https://github.com/matheussilvano" target="_blank" class="btn btn-secondary">GitHub</a>
                 <a href="https://www.linkedin.com/in/matheussilvano/" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -48,7 +77,7 @@
         <section id="about" class="section section-fullpage">
             <div class="container about-content">
                 <div class="about-image-container reveal">
-                    <img src="matheus-silvano.png" alt="Foto de Matheus Silvano">
+                    <img loading="lazy" src="matheus-silvano.png" alt="Foto de Matheus Silvano">
                 </div>
                 <div class="about-text-container">
                     <h2 class="section-title reveal" data-translate="about_me_title">Sobre Mim</h2>
@@ -80,17 +109,17 @@
                 <div class="tech-carousel-container reveal">
                     <div class="tech-carousel-slider">
                         <div class="tech-slide-track">
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"></div>
-                            <div class="tech-slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"></div>
+                            <div class="tech-slide"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch"></div>
                         </div>
                     </div>
                 </div>
@@ -117,165 +146,36 @@
             <!-- PROJETOS -->
             <section id="projects" class="section">
                 <h2 class="section-title reveal" data-translate="projects_title">Projetos</h2>
-                <div class="project-grid">
-
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="cognita.png" alt="Imagem do projeto Cognita Suite" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-badge">Hackathon</span>
-                            <h3 class="card-title">Cognita Suite</h3>
-                            <p data-translate="project_cognita_desc">
-                                Aplicação web feita em 24 horas, desenvolvida para a trilha de Educação do Hackathon AI Challenge da SECCOM UFSC + DOOOR. 
-                                A suíte visa potencializar os estudos de alunos, oferecendo ferramentas inteligentes para correção de redações e consulta a 
-                                materiais de estudo, tudo impulsionado por modelos de linguagem de ponta.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>OpenAI</span>
+                    <div class="featured-projects reveal">
+                        <h3 data-translate="featured_projects_title">Projetos em destaque</h3>
+                        <div class="featured-grid">
+                            <div class="featured-card">
+                                <img src="mooose.png" alt="Capa do projeto Mooose" class="featured-image">
+                                <h4>Mooose</h4>
+                                <p data-translate="featured_mooose">Correção automática de redações com LLMs, centenas de correções e painel para estudantes.</p>
+                                <a href="https://www.mooose.com.br" target="_blank" class="btn btn-primary" data-translate="open_mooose_button">Acessar Mooose</a>
                             </div>
-                            <div class="card-actions">
-                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
+                            <div class="featured-card">
+                                <img src="promoove.png" alt="Capa do projeto PROMOOVE" class="featured-image">
+                                <h4>PROMOOVE</h4>
+                                <p data-translate="featured_promoove">MVP em produção para avaliação de talentos com IA, focado em histórias e competências.</p>
+                                <a href="https://promoove.vercel.app/" target="_blank" class="btn btn-secondary" data-translate="view_mvp_button">Abrir MVP</a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title" data-translate="project1_title">Real Time Face Recognizer</h3>
-                            <p data-translate="project1_desc">
-                                Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Docker</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title" data-translate="project2_title">Toxic Content Detector</h3>
-                            <p data-translate="project2_desc">
-                                Projeto de ML para detecção de comentários tóxicos usando NLP, regressão logística e TF-IDF.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn btn-primary" data-translate="test_online_button">Testar Online</a>
+                            <div class="featured-card">
+                                <img src="toxic-content-detector.png" alt="Capa do projeto Toxic Content Detector" class="featured-image">
+                                <h4>Toxic Content Detector</h4>
+                                <p data-translate="featured_toxic">Modelo treinado do zero em dataset de comentários, com pipeline de NLP e deploy em Docker.</p>
                                 <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
                             </div>
-                        </div>
                     </div>
-
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title" data-translate="project3_title">Fake Data API</h3>
-                            <p data-translate="project3_desc">
-                                Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span><span>FastAPI</span><span>Docker</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="cnpj-extension.jpeg" alt="Imagem do projeto Removedor de Pontos do CNPJ" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title" data-translate="project4_title">Removedor de Pontos do CNPJ</h3>
-                            <p data-translate="project4_desc">
-                                Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.
-                            </p>
-                            <div class="tech-stack">
-                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn btn-primary" data-translate="view_webstore_button">Ver na Web Store</a>
-                                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sua Clínica -->
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="sua-clinica.jpeg" alt="Imagem do projeto Sua Clínica" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-badge">Hackathon</span>
-                            <h3 class="card-title">Sua Clínica</h3>
-                            <p data-translate="project_suaclinica_desc">
-                                Plataforma inteligente desenvolvida no Techstars Startup Weekend Health Floripa 2025 para automatizar
-                                agendamentos e atendimentos em clínicas de saúde, reduzindo etapas operacionais e erros manuais.
-                                Backend em Python (FastAPI) integrado ao n8n para orquestrar fluxos automatizados, diminuindo tarefas
-                                repetitivas e aumentando a eficiência do time. Utiliza modelos da OpenAI para entender mensagens em
-                                linguagem natural — inclusive por voz — e realizar agendamentos automáticos via WhatsApp, tornando a
-                                jornada do paciente mais ágil, humanizada e orientada por dados.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span>
-                                <span>FastAPI</span>
-                                <span>n8n</span>
-                                <span>OpenAI</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PROMOOVE -->
-                    <div class="card reveal">
-                        <div class="card-image-container">
-                            <img src="promoove.png" alt="Imagem do projeto PROMOOVE" class="card-image">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-badge">Hackathon</span>
-                            <h3 class="card-title">PROMOOVE</h3>
-                            <p data-translate="project_promoove_desc">
-                                HRTech focada em transformar processos de seleção e gestão de talentos por meio de IA. A solução nasce
-                                de um problema real: recrutamentos longos, pouca visibilidade interna e dificuldade de enxergar quem as
-                                pessoas realmente são além do currículo. Analisa histórias, competências e trajetórias de forma
-                                humanizada, gerando insights que apoiam decisões mais justas e eficientes. O projeto envolve pesquisa
-                                de mercado, desenho da solução, matriz RPU e prototipação com backend em Python/FastAPI e modelos da
-                                OpenAI.
-                            </p>
-                            <div class="tech-stack">
-                                <span>Python</span>
-                                <span>FastAPI</span>
-                                <span>OpenAI</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="#" class="btn btn-secondary" data-translate="coming_soon_button">Em breve</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mooose -->
+                </div>
+                <h3 class="project-subtitle" data-translate="projects_ia_title">IA &amp; LLMs</h3>
+                <div class="project-grid">
                     <div class="card reveal">
                         <div class="card-image-container">
                             <img src="mooose.png" alt="Imagem do projeto Mooose" class="card-image">
                         </div>
                         <div class="card-content">
-                            <span class="card-badge">Startup</span>
                             <h3 class="card-title">Mooose</h3>
                             <p data-translate="project_mooose_desc">
                                 Plataforma gratuita de correção de redações para o ENEM, focada em acessibilidade e impacto social. 
@@ -283,6 +183,8 @@
                                 utilizando modelos de linguagem para análise semântica e geração de comentários claros e didáticos. 
                                 Inclui painel de acompanhamento, ranking de redações e integrações com ferramentas de analytics.
                             </p>
+                            <p class="card-impact" data-translate="project_mooose_impact">Centenas de redações corrigidas com feedback médio em menos de 1 min.</p>
+                            <p class="card-contrib" data-translate="project_mooose_contrib">Desenhei arquitetura, APIs e pipeline de correção automática, integrando LLMs e analytics.</p>
                             <div class="tech-stack">
                                 <span>Python</span>
                                 <span>FastAPI</span>
@@ -295,6 +197,170 @@
                         </div>
                     </div>
 
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img loading="lazy" src="promoove.png" alt="Imagem do projeto PROMOOVE" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">PROMOOVE</h3>
+                            <p data-translate="project_promoove_desc">
+                                HRTech focada em transformar processos de seleção e gestão de talentos por meio de IA. A solução nasce
+                                de um problema real: recrutamentos longos, pouca visibilidade interna e dificuldade de enxergar quem as
+                                pessoas realmente são além do currículo. Analisa histórias, competências e trajetórias de forma
+                                humanizada, gerando insights que apoiam decisões mais justas e eficientes. O projeto envolve pesquisa
+                                de mercado, desenho da solução, matriz RPU e prototipação com backend em Python/FastAPI e modelos da
+                                OpenAI.
+                            </p>
+                            <p class="card-impact" data-translate="project_promoove_impact">MVP online para avaliação rápida de candidatos com análise assistida por IA.</p>
+                            <p class="card-contrib" data-translate="project_promoove_contrib">Modelei fluxos de avaliação, prototipei backend e automações de análise de histórias com LLMs.</p>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>OpenAI</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://promoove.vercel.app/" target="_blank" class="btn btn-secondary" data-translate="view_mvp_button">Abrir MVP</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img src="cognita.png" alt="Imagem do projeto Cognita Suite" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cognita Suite</h3>
+                            <p data-translate="project_cognita_desc">
+                                Aplicação web feita em 24 horas, desenvolvida para a trilha de Educação do Hackathon AI Challenge da SECCOM UFSC + DOOOR. 
+                                A suíte visa potencializar os estudos de alunos, oferecendo ferramentas inteligentes para correção de redações e consulta a 
+                                materiais de estudo, tudo impulsionado por modelos de linguagem de ponta.
+                            </p>
+                            <p class="card-impact" data-translate="project_cognita_impact">Entrega funcional em 24h de hackathon com correção inteligente de redações.</p>
+                            <p class="card-contrib" data-translate="project_cognita_contrib">Responsável pela arquitetura backend (FastAPI), orquestração e avaliação de prompts.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>OpenAI</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="btn btn-secondary" data-translate="in_dev_button">Em desenvolvimento — peça detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img src="toxic-content-detector.png" alt="Imagem do projeto Toxic Content Detector" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="project2_title">Toxic Content Detector</h3>
+                            <p data-translate="project2_desc">
+                                Projeto de ML para detecção de comentários tóxicos com modelo treinado do zero em dataset próprio, usando NLP, regressão logística e TF-IDF.
+                            </p>
+                            <p class="card-impact" data-translate="project2_impact">Modelo proprietário treinado do zero; pipeline dockerizado pronto para testes online.</p>
+                            <p class="card-contrib" data-translate="project2_contrib">Desenvolvi o pré-processamento, treino e deploy do modelo com avaliação contínua.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Streamlit</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://toxic-content-detector.streamlit.app/" target="_blank" class="btn btn-primary" data-translate="test_online_button">Testar Online</a>
+                                <a href="https://github.com/matheussilvano/toxic-content-detector" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img loading="lazy" src="sua-clinica.jpeg" alt="Imagem do projeto Sua Clínica" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Sua Clínica</h3>
+                            <p data-translate="project_suaclinica_desc">
+                                Plataforma inteligente desenvolvida no Techstars Startup Weekend Health Floripa 2025 para automatizar
+                                agendamentos e atendimentos em clínicas de saúde, reduzindo etapas operacionais e erros manuais.
+                                Backend em Python (FastAPI) integrado ao n8n para orquestrar fluxos automatizados, diminuindo tarefas
+                                repetitivas e aumentando a eficiência do time. Utiliza modelos da OpenAI para entender mensagens em
+                                linguagem natural — inclusive por voz — e realizar agendamentos automáticos via WhatsApp, tornando a
+                                jornada do paciente mais ágil, humanizada e orientada por dados.
+                            </p>
+                            <p class="card-impact" data-translate="project_suaclinica_impact">Fluxo fim a fim entregue em 54h de hackathon com agendamento automático.</p>
+                            <p class="card-contrib" data-translate="project_suaclinica_contrib">Liderei o backend e integrações com n8n/OpenAI, garantindo fluxo fim a fim em 54h de hackathon.</p>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>FastAPI</span>
+                                <span>n8n</span>
+                                <span>OpenAI</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="#" class="btn btn-secondary" data-translate="in_dev_button">Em desenvolvimento — peça detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="project-subtitle" data-translate="projects_backend_title">Back-end &amp; APIs</h3>
+                <div class="project-grid">
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img loading="lazy" src="Reconhecimento.jpg" alt="Imagem do projeto de Reconhecimento Facial" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="project1_title">Real Time Face Recognizer</h3>
+                            <p data-translate="project1_desc">
+                                Um sistema local de reconhecimento facial com OpenCV e LBPH. Ideal para projetos de visão computacional que identificam rostos em tempo real.
+                            </p>
+                            <p class="card-impact" data-translate="project1_impact">Reconhecimento em tempo real rodando localmente com baixo tempo de resposta.</p>
+                            <p class="card-contrib" data-translate="project1_contrib">Implementei o pipeline de captura, extração de features e identificação ao vivo com OpenCV.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>OpenCV</span><span>NumPy</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://gitlab.com/projetos3193519/face-recognitor" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img loading="lazy" src="fake-data-api.png" alt="Imagem do projeto Fake Data API" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="project3_title">Fake Data API</h3>
+                            <p data-translate="project3_desc">
+                                Uma API para gerar dados fictícios de pessoas e empresas. Ideal para testes com usuários anônimos.
+                            </p>
+                            <p class="card-impact" data-translate="project3_impact">Geração de milhares de registros sintéticos em poucos segundos para testes.</p>
+                            <p class="card-contrib" data-translate="project3_contrib">Construi a API com FastAPI e autenticação, além da geração customizada de dados.</p>
+                            <div class="tech-stack">
+                                <span>Python</span><span>FastAPI</span><span>Docker</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://gitlab.com/projetos3193519/fake-data-api" target="_blank" class="btn btn-secondary" data-translate="view_gitlab_button">Ver no GitLab</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="project-subtitle" data-translate="projects_tools_title">Ferramentas &amp; Extensões</h3>
+                <div class="project-grid">
+                    <div class="card reveal">
+                        <div class="card-image-container">
+                            <img loading="lazy" src="cnpj-extension.jpeg" alt="Imagem do projeto Removedor de Pontos do CNPJ" class="card-image">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title" data-translate="project4_title">Removedor de Pontos do CNPJ</h3>
+                            <p data-translate="project4_desc">
+                                Extensão para Chrome que simplifica a cópia de CNPJs formatados. Hoje com mais de 170 usuários.
+                            </p>
+                            <p class="card-impact" data-translate="project4_impact">170+ usuários ativos na Web Store, economizando ~20s por cópia.</p>
+                            <p class="card-contrib" data-translate="project4_contrib">Criei a extensão end-to-end, UI simples e publicação na Chrome Web Store.</p>
+                            <div class="tech-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="https://chromewebstore.google.com/detail/remover-pontos-do-cnpj/kfpolfmflhddjgkhcagdhcckmfhnhoha" target="_blank" class="btn btn-primary" data-translate="view_webstore_button">Ver na Web Store</a>
+                                <a href="https://github.com/matheussilvano/limpa-cnpj" target="_blank" class="btn btn-secondary" data-translate="view_github_button">Ver no GitHub</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -306,31 +372,33 @@
                         <div class="timeline-content">
                             <span class="timeline-date" data-translate="exp1_date">Abr 2025 - Atual</span>
                             <h3 data-translate="exp1_title">Dígitro - Estagiário em Desenvolvimento de IA</h3>
-                            <p data-translate="exp1_desc">
-                                Atuação no time de Pesquisa &amp; Desenvolvimento com foco em modelos de linguagem, 
-                                avaliação de LLMs e automação de diagnósticos de chamadas VoIP, construindo pipelines 
-                                de experimentação e métricas de qualidade.
-                            </p>
+                            <ul class="timeline-list">
+                                <li data-translate="exp1_b1">Avaliação e comparação de LLMs para diagnósticos de chamadas VoIP, reduzindo tempo de análise.</li>
+                                <li data-translate="exp1_b2">Construção de pipelines de experimentação com métricas de qualidade e automação.</li>
+                                <li data-translate="exp1_b3">Pesquisa e implementação de melhorias de prompts e fluxos para produtos internos.</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="timeline-content">
                             <span class="timeline-date" data-translate="exp2_date">Dez 2023 - Abr 2025</span>
                             <h3 data-translate="exp2_title">Nexxera - Operador de Implantação</h3>
-                            <p data-translate="exp2_desc">
-                                Suporte técnico a clientes, automações com Shell Script/Python e análise de layouts de arquivos 
-                                para integração entre sistemas financeiros e bancários.
-                            </p>
+                            <ul class="timeline-list">
+                                <li data-translate="exp2_b1">Automatizei rotinas com Shell Script/Python para reduzir tempo de implantação.</li>
+                                <li data-translate="exp2_b2">Analisei layouts de arquivos para integrações financeiras e bancárias.</li>
+                                <li data-translate="exp2_b3">Atuei no suporte técnico a clientes garantindo estabilidade das entregas.</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item reveal">
                         <div class="timeline-content">
                             <span class="timeline-date" data-translate="exp3_date">Jan 2022 - Dez 2023</span>
                             <h3 data-translate="exp3_title">Nexxera - Jovem Aprendiz (Implantação)</h3>
-                            <p data-translate="exp3_desc">
-                                Primeiro contato com o ambiente corporativo, atuando com cadastro de clientes, 
-                                suporte à implantação de soluções e aprendizado dos processos de negócio da empresa.
-                            </p>
+                            <ul class="timeline-list">
+                                <li data-translate="exp3_b1">Apoio ao cadastro e onboarding de clientes em sistemas internos.</li>
+                                <li data-translate="exp3_b2">Suporte a implantações e testes funcionais.</li>
+                                <li data-translate="exp3_b3">Aprendizado de processos de negócio e melhores práticas de atendimento.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -342,7 +410,7 @@
                 <div class="carousel-container reveal">
                     <div class="carousel-track">
                         <div class="carousel-card active">
-                            <img src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
+                            <img loading="lazy" src="edson-silva.jpeg" alt="Foto de Edson Silva" class="carousel-avatar">
                             <h3>Edson Silva</h3>
                             <p class="role" data-translate="rec1_role">Presidente e fundador do Grupo Nexxees</p>
                             <p class="text" data-translate="rec1_text">
@@ -351,7 +419,7 @@
                             </p>
                         </div>
                         <div class="carousel-card">
-                            <img src="robson-clemente.jpeg" alt="Foto de Robson Clemente" class="carousel-avatar">
+                            <img loading="lazy" src="robson-clemente.jpeg" alt="Foto de Robson Clemente" class="carousel-avatar">
                             <h3>Robson Clemente</h3>
                             <p class="role" data-translate="rec2_role">Gerente de Implantação - Nexxera</p>
                             <p class="text" data-translate="rec2_text">
@@ -360,7 +428,7 @@
                             </p>
                         </div>
                         <div class="carousel-card">
-                            <img src="junior-matos.jpeg" alt="Foto de Junior Matos" class="carousel-avatar">
+                            <img loading="lazy" src="junior-matos.jpeg" alt="Foto de Junior Matos" class="carousel-avatar">
                             <h3>Junior Manoel de Matos</h3>
                             <p class="role" data-translate="rec3_role">Tech Leader - Nexxera</p>
                             <p class="text" data-translate="rec3_text">
@@ -401,6 +469,11 @@
         </div>
     </main>
 
+    <button class="contact-fab" id="contactFab" aria-label="Fale comigo">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span class="sr-text" data-translate="contact_fab_label">Fale comigo</span>
+    </button>
+
     <footer class="footer">
         <p data-translate="footer_text">&copy; 2024 Matheus Silvano. Todos os direitos reservados.</p>
     </footer>
@@ -409,7 +482,7 @@
     <div class="chat-container">
         <div class="chat-header">
             <div class="chat-avatar">
-                <img src="assistant_logo.png" alt="Avatar do Assistente" class="chat-avatar-img">
+                <img loading="lazy" src="assistant_logo.png" alt="Avatar do Assistente" class="chat-avatar-img">
             </div>
             <div class="chat-header-title">
                 <h3 data-translate="chat_title">Assistente Virtual</h3>
@@ -430,9 +503,9 @@
                 </p>
             </div>
             <div class="quick-replies">
-                <button class="quick-reply-btn" data-translate="chat_q1">Quais projetos você recomenda ver primeiro?</button>
-                <button class="quick-reply-btn" data-translate="chat_q2">Qual é sua experiência com IA e modelos de linguagem?</button>
-                <button class="quick-reply-btn" data-translate="chat_q3">Quais tecnologias você mais utiliza no dia a dia?</button>
+                <button class="quick-reply-btn" data-translate="chat_q1">Quais projetos mostram melhor sua experiência com back-end?</button>
+                <button class="quick-reply-btn" data-translate="chat_q2">Como você usou LLMs na prática?</button>
+                <button class="quick-reply-btn" data-translate="chat_q3">Você já trabalhou com Docker/MLOps em produção?</button>
             </div>
         </div>
         <div class="chat-input-area">
@@ -446,7 +519,7 @@
     <div class="chat-trigger-wrapper">
         <span class="chat-cta-bubble" data-translate="chat_cta_bubble">Converse comigo!</span>
         <button class="chat-open-btn" aria-label="Abrir chat">
-            <img src="assistant_logo.png" alt="Abrir chat" class="chat-open-icon">
+            <img loading="lazy" src="assistant_logo.png" alt="Abrir chat" class="chat-open-icon">
         </button>
     </div>
 

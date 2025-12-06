@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -17,9 +16,9 @@
     <header class="hero">
         <div class="header-controls">
             <div id="languageSelector" class="language-selector">
-                <img src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
-                <img src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
-                <img src="spain-flag.png" alt="Bandeira da Espanha" class="lang-flag" data-lang="es">
+                <img loading="lazy" src="brazil-flag.png" alt="Bandeira do Brasil" class="lang-flag" data-lang="pt">
+                <img loading="lazy" src="uk-flag.png" alt="Bandeira do Reino Unido" class="lang-flag" data-lang="en">
+                <img loading="lazy" src="spain-flag.png" alt="Bandeira da Espanha" class="lang-flag" data-lang="es">
             </div>
             <button id="darkModeToggle" aria-label="Alternar modo escuro/claro">🌙</button>
         </div>
@@ -37,21 +36,37 @@
                 </a>
             </div>
         </div>
+        <a href="#courses" class="scroll-down-arrow" aria-label="Rolar para cursos">
+            <span class="scroll-text" data-translate="courses_scroll">Ver cursos</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path>
+            </svg>
+        </a>
     </header>
 
     <main>
         <div class="container">
             <section id="courses" class="section">
                 <h2 class="section-title" data-translate="courses_main_title">Formações & Trilhas</h2>
+                <div class="recruiter-note">
+                    <strong data-translate="courses_recruiter_note">Se você é recrutador(a), os cursos mais alinhados para vagas de back-end/IA são:</strong>
+                    <ul>
+                        <li data-translate="courses_recruiter_item1">MLOps: Implantação e Operação de Modelos</li>
+                        <li data-translate="courses_recruiter_item2">LangChain: Agentes de IA e Apps com LLMs</li>
+                        <li data-translate="courses_recruiter_item3">GitLab CI: Pipelines e Continuous Delivery</li>
+                        <li data-translate="courses_recruiter_item4">Banco de Dados/SQL com PostgreSQL</li>
+                        <li data-translate="courses_recruiter_item5">Docker para Desenvolvedores</li>
+                    </ul>
+                </div>
                 <p style="text-align:center; max-width:750px; margin:0 auto 2.5rem;" data-translate="courses_intro">
                     Abaixo estão alguns dos cursos mais relevantes que concluí. Cada card traz o nome do curso,
                     instituição, ano e, quando disponível, o certificado anexo.
                 </p>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:1rem;" data-translate="courses_python_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:1rem;" data-translate="courses_python_title" data-target="courses-python" aria-expanded="true">
                     Python &amp; Programação Geral
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-python">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Python 3 - Mundo 1</h3>
@@ -170,10 +185,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_ai_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_ai_title" data-target="courses-ai" aria-expanded="true">
                     Inteligência Artificial &amp; Machine Learning
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-ai">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Aprenda Machine Learning em Python com Scikit-learn</h3>
@@ -190,6 +205,7 @@
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Langchain: Desenvolva Agentes de IA e Apps com LLMs</h3>
+                            <span class="course-star" data-translate="course_star_label">⭐ Mais relevante</span>
                             <p><strong data-translate="institution_label">Instituição:</strong> Udemy</p>
                             <p><strong data-translate="year_label">Ano:</strong> 2025</p>
                             <div class="card-actions">
@@ -242,6 +258,7 @@
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">MLOps: Implantação e Operação de Modelos de Machine Learning</h3>
+                            <span class="course-star" data-translate="course_star_label">⭐ Mais relevante</span>
                             <p><strong data-translate="institution_label">Instituição:</strong> Udemy</p>
                             <p><strong data-translate="year_label">Ano:</strong> 2025</p>
                             <div class="card-actions">
@@ -253,10 +270,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_db_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_db_title" data-target="courses-db" aria-expanded="true">
                     Banco de Dados &amp; SQL
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-db">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Curso Completo de Banco de Dados Oracle SQL e PL/SQL</h3>
@@ -284,10 +301,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_web_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_web_title" data-target="courses-web" aria-expanded="true">
                     Desenvolvimento Web &amp; JavaScript
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-web">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">HTML5 e CSS3 - Módulo 1</h3>
@@ -341,10 +358,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_security_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_security_title" data-target="courses-security" aria-expanded="true">
                     Segurança da Informação
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-security">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Consciência em Segurança da Informação</h3>
@@ -375,10 +392,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_linux_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_linux_title" data-target="courses-linux" aria-expanded="true">
                     Linux &amp; Shell Script
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-linux">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Linux</h3>
@@ -406,10 +423,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_version_control_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_version_control_title" data-target="courses-version" aria-expanded="true">
                     Controle de Versão (Git, GitHub, GitLab)
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-version">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Git e GitHub</h3>
@@ -452,6 +469,7 @@
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">GitLab CI: Pipelines, Continuous Delivery e Deployment</h3>
+                            <span class="course-star" data-translate="course_star_label">⭐ Mais relevante</span>
                             <p><strong data-translate="institution_label">Instituição:</strong> Udemy</p>
                             <p><strong data-translate="year_label">Ano:</strong> 2025</p>
                             <div class="card-actions">
@@ -463,10 +481,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_devops_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_devops_title" data-target="courses-devops" aria-expanded="true">
                     Containerização &amp; DevOps
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-devops">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Docker para Desenvolvedores (com Docker Swarm e Kubernetes)</h3>
@@ -481,10 +499,10 @@
                     </div>
                 </div>
 
-                <h3 class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_awards_title">
+                <h3 class="section-title course-toggle" style="font-size:1.8rem; margin-bottom:1.5rem; margin-top:3rem;" data-translate="courses_awards_title" data-target="courses-awards" aria-expanded="true">
                     Reconhecimentos &amp; Prêmios
                 </h3>
-                <div class="project-grid">
+                <div class="project-grid course-panel" id="courses-awards">
                     <div class="card reveal">
                         <div class="card-content">
                             <h3 class="card-title">Menção Honrosa - OBMEP</h3>
@@ -523,7 +541,7 @@
     <div class="chat-container">
         <div class="chat-header">
             <div class="chat-avatar">
-                <img src="assistant_logo.png" alt="Avatar do Assistente" class="chat-avatar-img">
+                <img loading="lazy" src="assistant_logo.png" alt="Avatar do Assistente" class="chat-avatar-img">
             </div>
             <div class="chat-header-title">
                 <h3 data-translate="chat_title">Assistente Virtual</h3>
@@ -558,7 +576,7 @@
     <div class="chat-trigger-wrapper">
         <span class="chat-cta-bubble" data-translate="chat_cta_bubble">Converse comigo!</span>
         <button class="chat-open-btn" aria-label="Abrir chat">
-            <img src="assistant_logo.png" alt="Abrir chat" class="chat-open-icon">
+            <img loading="lazy" src="assistant_logo.png" alt="Abrir chat" class="chat-open-icon">
         </button>
     </div>
 
