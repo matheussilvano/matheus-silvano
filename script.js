@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
       nav_contact: "Contato",
       courses_button: "Cursos & Certificações",
       download_cv_button: "Baixar Currículo",
+      about_backstage_button: "Ver Bastidores 🕵️‍♂️",
+      about_backstage_button_return: "Voltar ao Profissional 💼",
+      back_to_portfolio_professional_button: "Voltar para o portfólio profissional",
       about_me_scroll: "Sobre Mim",
       about_me_title: "Sobre Mim",
       about_me_p1: "Desenvolvedor de IA na Dígitro Tecnologia e estudante de Sistemas de Informação na UFSC. Atuo com pesquisa, desenvolvimento e avaliação de modelos de linguagem, focando em soluções que geram impacto real em produtos e clientes.",
@@ -158,6 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
       nav_contact: "Contact",
       courses_button: "Courses & Certifications",
       download_cv_button: "Download CV",
+      about_backstage_button: "See Behind the Scenes 🕵️‍♂️",
+      about_backstage_button_return: "Back to Professional 💼",
+      back_to_portfolio_professional_button: "Back to professional portfolio",
       about_me_scroll: "About Me",
       about_me_title: "About Me",
       about_me_p1: "AI Developer at Dígitro Tecnologia and Information Systems student at UFSC. I research, build, and evaluate language models focused on solutions that create real impact for products and customers.",
@@ -305,6 +311,9 @@ document.addEventListener("DOMContentLoaded", () => {
       nav_contact: "Contacto",
       courses_button: "Cursos y Certificaciones",
       download_cv_button: "Descargar CV",
+      about_backstage_button: "Ver Bastidores 🕵️‍♂️",
+      about_backstage_button_return: "Volver a lo Profesional 💼",
+      back_to_portfolio_professional_button: "Volver al portafolio profesional",
       about_me_scroll: "Sobre mí",
       about_me_title: "Sobre mí",
       about_me_p1: "Desarrollador de IA en Dígitro Tecnologia y estudiante de Sistemas de Información en la UFSC. Trabajo en investigación, desarrollo y evaluación de modelos de lenguaje, enfocándome en soluciones que generen impacto real en productos y clientes.",
@@ -471,6 +480,16 @@ document.addEventListener("DOMContentLoaded", () => {
       cvDownloader.href = cvPath;
     }
 
+    const backstageBtn = document.getElementById("aboutToggleBtn");
+    const aboutPersonal = document.getElementById("aboutPersonal");
+    if (backstageBtn) {
+      const key = aboutPersonal?.classList.contains("active")
+        ? "about_backstage_button_return"
+        : "about_backstage_button";
+      const translatedBtn = translations[chosenLang]?.[key];
+      if (translatedBtn) backstageBtn.textContent = translatedBtn;
+    }
+
     flags.forEach(flag => {
       if (flag.dataset.lang === chosenLang) {
         flag.classList.add("active");
@@ -583,6 +602,50 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const heroSubtitle = document.querySelector('.hero-subtitle');
   typeWriter(heroSubtitle);
+
+  // --- SOBRE MIM: MODO CONFIDENCIAL ---
+  const aboutToggleBtn = document.getElementById("aboutToggleBtn");
+  const aboutPersonal = document.getElementById("aboutPersonal");
+  const aboutTextContainer = document.querySelector(".about-text-container");
+  const getCurrentLang = () => localStorage.getItem("language") || "pt";
+
+  function updateBackstageButton(isPersonal) {
+    if (!aboutToggleBtn) return;
+    const lang = getCurrentLang();
+    const key = isPersonal ? "about_backstage_button_return" : "about_backstage_button";
+    const label = translations[lang]?.[key] || (isPersonal ? "Voltar ao Profissional 💼" : "Ver Bastidores 🕵️‍♂️");
+    aboutToggleBtn.textContent = label;
+  }
+
+  function typeWriterPlain(element) {
+    if (!element) return;
+    const text = element.textContent;
+    element.textContent = "";
+    text.split("").forEach((char, i) => {
+      setTimeout(() => {
+        element.textContent += char;
+      }, 18 * i);
+    });
+  }
+
+  if (aboutToggleBtn && aboutPersonal && aboutTextContainer) {
+    let hasTypedPersonal = false;
+
+    aboutToggleBtn.addEventListener("click", () => {
+      const willShowPersonal = !aboutPersonal.classList.contains("active");
+      aboutPersonal.classList.toggle("active", willShowPersonal);
+      aboutTextContainer.classList.toggle("about-confidential-mode", willShowPersonal);
+      updateBackstageButton(willShowPersonal);
+
+      if (willShowPersonal && !hasTypedPersonal) {
+        typeWriterPlain(aboutPersonal.querySelector(".about-personal-intro"));
+        hasTypedPersonal = true;
+      }
+    });
+
+    updateBackstageButton(false);
+  }
+
   
   // --- LÓGICA PARA EFEITO 3D NOS CARDS ---
   const projectCards = document.querySelectorAll('.card');
