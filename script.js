@@ -98,11 +98,14 @@ document.addEventListener("DOMContentLoaded", () => {
       radar_learning: "Estudando Agora",
       radar_on_radar: "No Radar",
       courses_page_title: "Cursos & Certificações",
-      courses_page_subtitle: "Uma visão geral das trilhas de estudo que fortalecem minha base em Python, IA, dados, back-end, DevOps e segurança.",
+      courses_page_subtitle: "Uma visão geral das trilhas de estudo que fortalecem minha base",
       courses_scroll: "Ver cursos",
       back_to_portfolio_button: "← Voltar ao portfólio",
       courses_main_title: "Formações & Trilhas",
       courses_intro: "Abaixo estão alguns dos cursos mais relevantes que concluí. Cada card traz o nome do curso, instituição, ano e, quando disponível, o certificado anexo.",
+      courses_search_label: "Buscar cursos e certificações",
+      courses_search_placeholder: "Buscar por curso, instituição ou ano",
+      courses_search_empty: "Nenhum curso encontrado para sua busca.",
       courses_python_title: "Python & Programação Geral",
       courses_ai_title: "Inteligência Artificial & Machine Learning",
       courses_db_title: "Banco de Dados & SQL",
@@ -247,6 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
       back_to_portfolio_button: "← Back to portfolio",
       courses_main_title: "Education & Learning Paths",
       courses_intro: "Here are some of the most relevant courses I have completed. Each card shows the course name, institution, year, and certificate when available.",
+      courses_search_label: "Search courses and certifications",
+      courses_search_placeholder: "Search by course, institution, or year",
+      courses_search_empty: "No courses match your search.",
       courses_python_title: "Python & General Programming",
       courses_ai_title: "Artificial Intelligence & Machine Learning",
       courses_db_title: "Databases & SQL",
@@ -390,6 +396,9 @@ document.addEventListener("DOMContentLoaded", () => {
       back_to_portfolio_button: "← Volver al portafolio",
       courses_main_title: "Formaciones y Rutas",
       courses_intro: "A continuación están algunos de los cursos más relevantes que concluí. Cada tarjeta trae el nombre del curso, institución, año y, cuando disponible, el certificado.",
+      courses_search_label: "Buscar cursos y certificaciones",
+      courses_search_placeholder: "Buscar por curso, institución o año",
+      courses_search_empty: "Ningún curso coincide con tu búsqueda.",
       courses_python_title: "Python y Programación General",
       courses_ai_title: "Inteligencia Artificial y Machine Learning",
       courses_db_title: "Bases de Datos y SQL",
@@ -840,6 +849,43 @@ document.addEventListener("DOMContentLoaded", () => {
       const el = document.getElementById(id);
       if (el) proactiveObserver.observe(el);
   });
+  
+  // --- BUSCA EM CURSOS ---
+  const courseSearchInput = document.getElementById("courseSearchInput");
+  if (courseSearchInput) {
+    const courseCards = Array.from(document.querySelectorAll("#courses .card"));
+    const emptyState = document.getElementById("courseSearchEmptyState");
+
+    const normalizeText = (value) => value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+    const filterCourses = (searchValue) => {
+      const query = normalizeText(searchValue.trim());
+      let visibleCount = 0;
+
+      courseCards.forEach((card) => {
+        const title = card.querySelector(".card-title")?.innerText || "";
+        const meta = Array.from(card.querySelectorAll("p")).map((p) => p.innerText).join(" ");
+        const haystack = normalizeText(`${title} ${meta}`);
+        const shouldShow = query === "" || haystack.includes(query);
+
+        card.style.display = shouldShow ? "" : "none";
+        if (shouldShow) visibleCount += 1;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount !== 0;
+      }
+    };
+
+    courseSearchInput.addEventListener("input", (event) => {
+      filterCourses(event.target.value);
+    });
+
+    filterCourses(courseSearchInput.value);
+  }
   
   // --- ACCORDION DE CURSOS ---
   const courseToggles = document.querySelectorAll(".course-toggle");
