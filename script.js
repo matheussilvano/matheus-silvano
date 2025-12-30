@@ -102,6 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
       courses_scroll: "Ver cursos",
       back_to_portfolio_button: "← Voltar ao portfólio",
       courses_main_title: "Formações & Trilhas",
+      cert_featured_label: "Destaques em IA",
+      cert_featured_title: "Certificações",
+      cert_featured_desc: "Badges verificados em IA generativa e uso responsável, com links diretos para validação.",
+      validate_cert_button: "Validar certificação",
       courses_intro: "Abaixo estão alguns dos cursos mais relevantes que concluí. Cada card traz o nome do curso, instituição, ano e, quando disponível, o certificado anexo.",
       courses_search_label: "Buscar cursos e certificações",
       courses_search_placeholder: "Buscar por curso, instituição ou ano",
@@ -249,6 +253,10 @@ document.addEventListener("DOMContentLoaded", () => {
       courses_scroll: "View courses",
       back_to_portfolio_button: "← Back to portfolio",
       courses_main_title: "Education & Learning Paths",
+      cert_featured_label: "AI Highlights",
+      cert_featured_title: "Certifications",
+      cert_featured_desc: "Verified badges in generative AI and responsible use, with direct validation links.",
+      validate_cert_button: "Verify credential",
       courses_intro: "Here are some of the most relevant courses I have completed. Each card shows the course name, institution, year, and certificate when available.",
       courses_search_label: "Search courses and certifications",
       courses_search_placeholder: "Search by course, institution, or year",
@@ -395,6 +403,10 @@ document.addEventListener("DOMContentLoaded", () => {
       courses_scroll: "Ver cursos",
       back_to_portfolio_button: "← Volver al portafolio",
       courses_main_title: "Formaciones y Rutas",
+      cert_featured_label: "Destacados en IA",
+      cert_featured_title: "Certificaciones",
+      cert_featured_desc: "Insignias verificadas en IA generativa y uso responsable, con enlaces directos para validación.",
+      validate_cert_button: "Validar certificación",
       courses_intro: "A continuación están algunos de los cursos más relevantes que concluí. Cada tarjeta trae el nombre del curso, institución, año y, cuando disponible, el certificado.",
       courses_search_label: "Buscar cursos y certificaciones",
       courses_search_placeholder: "Buscar por curso, institución o año",
@@ -886,6 +898,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filterCourses(courseSearchInput.value);
   }
+
+  // --- MINIATURAS DOS CERTIFICADOS EM CURSOS ---
+  const courseCardsWithPreview = document.querySelectorAll("#courses .card[data-preview]");
+  courseCardsWithPreview.forEach((card) => {
+    if (card.querySelector(".certificate-thumb")) return;
+    const src = card.dataset.preview;
+    if (!src) return;
+
+    const thumb = document.createElement("div");
+    thumb.className = "certificate-thumb";
+
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.src = src;
+    const title = card.querySelector(".card-title")?.innerText?.trim();
+    img.alt = title ? `Certificado ${title}` : "Prévia do certificado";
+
+    thumb.appendChild(img);
+    const content = card.querySelector(".card-content");
+    if (content) {
+      card.insertBefore(thumb, content);
+    } else {
+      card.insertBefore(thumb, card.firstChild);
+    }
+  });
   
   // --- ACCORDION DE CURSOS ---
   const courseToggles = document.querySelectorAll(".course-toggle");

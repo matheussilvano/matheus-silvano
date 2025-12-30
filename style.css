@@ -122,6 +122,60 @@ body.dark .hero {
     flex-wrap: wrap;
 }
 
+.hero-badges {
+    margin: 1.5rem auto 0;
+    max-width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge-strip {
+    display: flex;
+    gap: 1.1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero-badge-strip {
+    gap: 1.25rem;
+}
+
+.badge-icon {
+    display: inline-flex;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 14px;
+    transition: transform 0.25s ease;
+}
+
+.badge-icon img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 22px rgba(0,0,0,0.16));
+}
+
+.badge-icon:hover {
+    transform: translateY(-2px);
+}
+
+.badge-icon:hover img {
+    transform: scale(1.04);
+}
+
+.badge-label {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
 .top-nav {
     position: fixed;
     top: 0;
@@ -1374,6 +1428,78 @@ body:not(.dark) .chat-proactive-notification::after {
 }
 
 /* --- PÁGINA DE CURSOS & CERTIFICAÇÕES --- */
+.cert-featured {
+    background: var(--light-card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+    box-shadow: var(--shadow-light);
+}
+body.dark .cert-featured {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+.cert-featured-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+}
+
+.cert-featured-header h3 {
+    font-size: 1.35rem;
+}
+
+.cert-featured-header p {
+    margin: 0;
+    color: #52606d;
+}
+body.dark .cert-featured-header p {
+    color: #c3ccd7;
+}
+
+.cert-featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.cert-card .cert-badge-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(52, 152, 219, 0.05);
+    border-bottom: 1px solid var(--border-light);
+}
+body.dark .cert-card .cert-badge-image {
+    background: rgba(52, 152, 219, 0.08);
+    border-color: var(--border-dark);
+}
+
+.cert-badge-image img {
+    max-height: 80px;
+    width: auto;
+}
+
+.certificate-thumb {
+    background: var(--light-card-bg);
+    border-bottom: 1px solid var(--border-light);
+}
+body.dark .certificate-thumb {
+    background: var(--dark-card-bg);
+    border-color: var(--border-dark);
+}
+.certificate-thumb img {
+    width: 100%;
+    max-height: 240px;
+    display: block;
+    object-fit: cover;
+}
+
 .course-toggle {
     cursor: pointer;
     display: inline-flex;
@@ -1475,28 +1601,6 @@ body.dark #courseSearchInput { color: var(--text-light); }
     font-weight: 600;
     font-size: 0.95rem;
 }
-
-.recruiter-note {
-    background: var(--light-card-bg);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    margin: 1rem auto 2rem;
-    max-width: 800px;
-    box-shadow: var(--shadow-light);
-}
-body.dark .recruiter-note {
-    background: var(--dark-card-bg);
-    border-color: var(--border-dark);
-    box-shadow: var(--shadow-dark);
-}
-.recruiter-note ul {
-    margin: 0.5rem 0 0;
-    padding-left: 1.25rem;
-    line-height: 1.5;
-    color: #52606d;
-}
-body.dark .recruiter-note ul { color: #c3ccd7; }
 
 .course-star {
     display: inline-block;
