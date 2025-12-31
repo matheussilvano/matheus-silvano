@@ -123,11 +123,12 @@ body.dark .hero {
 }
 
 .hero-badges {
-    margin: 1.5rem auto 0;
-    max-width: 540px;
+    margin: 1.5rem auto 2rem;
+    max-width: 620px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .badge-strip {
@@ -166,6 +167,23 @@ body.dark .hero {
 
 .badge-icon:hover img {
     transform: scale(1.04);
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding-bottom: 4.5rem;
+    }
+    .hero-badges {
+        margin: 1rem auto 3rem;
+        max-width: 100%;
+    }
+    .hero-badge-strip {
+        gap: 0.9rem;
+    }
+    .badge-icon img {
+        width: 78px;
+        height: 78px;
+    }
 }
 
 .badge-label {
