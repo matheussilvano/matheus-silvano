@@ -924,25 +924,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
-  // --- ACCORDION DE CURSOS ---
-  const courseToggles = document.querySelectorAll(".course-toggle");
-  courseToggles.forEach((toggle, index) => {
-    const targetId = toggle.dataset.target;
-    const panel = document.getElementById(targetId);
-    if (!panel) return;
-
-    toggle.addEventListener("click", () => {
-      const currentlyOpen = toggle.getAttribute("aria-expanded") === "true";
-      const nextState = !currentlyOpen;
-      toggle.setAttribute("aria-expanded", nextState);
-      panel.hidden = !nextState;
-    });
-
-    // Por padrão, deixa tudo aberto
-    toggle.setAttribute("aria-expanded", "true");
-    panel.hidden = false;
-  });
-  
   // --- FAB DE CONTATO ---
   const contactFab = document.getElementById("contactFab");
   if (contactFab) {
