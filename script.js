@@ -626,10 +626,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatBox = document.getElementById('chat-box');
   const userInput = document.getElementById('user-input');
   const sendBtn = document.getElementById('send-btn');
+  const topNav = document.querySelector('.top-nav');
 
   let threadId = null;
   const apiUrl = 'https://api.matheussilvano.dev/ask';
   // const apiUrl = 'http://127.0.0.1:8000/ask';
+
+  if (topNav) {
+    document.body.classList.add('has-top-nav');
+  }
 
   chatBox.addEventListener('click', (e) => {
     if (e.target.classList.contains('quick-reply-btn')) {
