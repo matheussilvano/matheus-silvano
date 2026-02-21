@@ -22,11 +22,31 @@ O portfólio foi criado como uma página única com um design moderno e responsi
 ## Tecnologias Utilizadas
 
   * **Front-End:**
-      * HTML5
+      * React 18 (via CDN + Babel)
       * CSS3
       * JavaScript (ES6+)
+  * **Back-End (integração de IA):**
+      * API externa em `https://api.matheussilvano.dev/ask`
   * **Ferramentas e Outros:**
       * **Versionamento:** Git
+
+## Estrutura
+
+  * `index.html`: shell da página principal (renderizada por React).
+  * `cursos.html`: shell da página de cursos/certificações (renderizada por React).
+  * `all-projects.html`: página com todos os projetos (incluindo os destacados).
+  * `app-react.jsx`: bootstrap do app e roteador por página.
+  * `data/site-data.js`: dados e constantes do site (textos, assets, projetos, cursos etc.).
+  * `hooks/use-site-state.js`: estado global de idioma/tema.
+  * `hooks/use-reveal.js`: animação de reveal por interseção.
+  * `components/layout.jsx`: componentes de layout compartilhados (`Controls`, `Footer`).
+  * `components/cards.jsx`: componentes de cards (`ProjectCard`, `CourseCard`).
+  * `components/chat-assistant.jsx`: componente de chat com streaming da API de IA.
+  * `components/pages/home-page.jsx`: composição da página principal.
+  * `components/pages/courses-page.jsx`: composição da página de cursos.
+  * `style.css`: estilos globais desktop-first + ajustes mobile-friendly.
+  * `assets/`: organização de imagens, PDFs, badges e certificados.
+  * `legacy/`: código antigo preservado para referência (`script.js`, `chat-vue.js`, `common.jsx` legado, páginas de projetos legadas).
 
 ## Como Executar
 
