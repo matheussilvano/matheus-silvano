@@ -1,10 +1,12 @@
-(() => {
-  const { useState } = React;
-  const { PROJECTS, t } = window.AppData;
-  const { useReveal, useCardTilt } = window.AppHooks;
-  const { Controls, Footer, ChatAssistant, ProjectCard, ScrollArrow } = window.AppComponents;
+import { useState } from "react";
+import { PROJECTS, t } from "../../data/site-data.js";
+import { useReveal } from "../../hooks/use-reveal.js";
+import { useCardTilt } from "../../hooks/use-card-tilt.js";
+import { Controls, Footer, ScrollArrow } from "../layout.jsx";
+import { ChatAssistant } from "../chat-assistant.jsx";
+import { ProjectCard } from "../cards.jsx";
 
-  function AllProjectsPage({ lang, setLang, dark, setDark }) {
+  export function AllProjectsPage({ lang, setLang, dark, setDark }) {
     const [activeFeed, setActiveFeed] = useState("ai");
     const feeds = [
       { id: "ai", label: t(lang, "projects_ia_title"), items: PROJECTS.ai },
@@ -64,6 +66,3 @@
       </>
     );
   }
-
-  window.AppPages = { ...(window.AppPages || {}), AllProjectsPage };
-})();

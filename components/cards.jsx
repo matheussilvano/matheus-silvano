@@ -1,6 +1,6 @@
-(() => {
-  const { useEffect, useState } = React;
-  const { t } = window.AppData;
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { t } from "../data/site-data.js";
 
   function getProjectActions(project) {
     if (project.actions && project.actions.length) return project.actions;
@@ -10,7 +10,7 @@
     return [];
   }
 
-  function ProjectDetailsModal({ lang, project, open, onClose }) {
+  export function ProjectDetailsModal({ lang, project, open, onClose }) {
     useEffect(() => {
       if (!open) return undefined;
 
@@ -33,7 +33,7 @@
 
     const actions = getProjectActions(project);
 
-    return ReactDOM.createPortal(
+    return createPortal(
       <div className="project-modal-overlay" role="dialog" aria-modal="true" aria-label={project.title} onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}>
@@ -69,7 +69,7 @@
     );
   }
 
-  function ProjectCard({ lang, project }) {
+  export function ProjectCard({ lang, project }) {
     const [showDetails, setShowDetails] = useState(false);
     const actions = getProjectActions(project);
 
@@ -97,7 +97,7 @@
     );
   }
 
-  function CourseCard({ lang, item }) {
+  export function CourseCard({ lang, item }) {
     return (
       <div className="card reveal">
         {item.preview ? <div className="certificate-thumb"><img src={item.preview} alt={item.title} /></div> : null}
@@ -113,11 +113,3 @@
       </div>
     );
   }
-
-  window.AppComponents = {
-    ...(window.AppComponents || {}),
-    ProjectDetailsModal,
-    ProjectCard,
-    CourseCard
-  };
-})();

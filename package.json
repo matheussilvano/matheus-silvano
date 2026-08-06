@@ -2,11 +2,14 @@
   "name": "matheus-silvano",
   "version": "1.0.0",
   "description": "Este é o código-fonte do meu portfólio pessoal, uma página da web interativa para mostrar minhas habilidades, projetos e experiência profissional.",
-  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "http-server . -p 5500 -c-1",
-    "start": "http-server . -p 5500 -c-1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,13 @@
     "url": "https://github.com/matheussilvano/matheus-silvano/issues"
   },
   "homepage": "https://github.com/matheussilvano/matheus-silvano#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "@vitejs/plugin-react": "^6.0.5",
+    "vite": "^8.2.1"
   }
 }

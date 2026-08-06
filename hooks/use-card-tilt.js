@@ -1,7 +1,6 @@
-(() => {
-  const { useEffect } = React;
+import { useEffect } from "react";
 
-  function useCardTilt(refreshKey) {
+export function useCardTilt(refreshKey) {
     useEffect(() => {
       const cards = Array.from(document.querySelectorAll('.card'));
       const listeners = [];
@@ -35,6 +34,3 @@
       return () => listeners.forEach((cleanup) => cleanup());
     }, [refreshKey]);
   }
-
-  window.AppHooks = { ...(window.AppHooks || {}), useCardTilt };
-})();

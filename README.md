@@ -22,7 +22,7 @@ O portfólio foi criado como uma página única com um design moderno e responsi
 ## Tecnologias Utilizadas
 
   * **Front-End:**
-      * React 18 (via CDN + Babel)
+      * React (compilado com Vite)
       * CSS3
       * JavaScript (ES6+)
   * **Back-End (integração de IA):**
@@ -45,12 +45,28 @@ O portfólio foi criado como uma página única com um design moderno e responsi
   * `components/pages/home-page.jsx`: composição da página principal.
   * `components/pages/courses-page.jsx`: composição da página de cursos.
   * `style.css`: estilos globais desktop-first + ajustes mobile-friendly.
-  * `assets/`: organização de imagens, PDFs, badges e certificados.
+  * `public/assets/`: imagens, PDFs, badges e certificados publicados sem alteração de URL.
   * `legacy/`: código antigo preservado para referência (`script.js`, `chat-vue.js`, `common.jsx` legado, páginas de projetos legadas).
 
 ## Como Executar
 
-- Acesse o portfólio online [clicando aqui](https://matheussilvano.github.io/matheus-silvano/)
+Pré-requisito: Node.js 20.19 ou superior.
+
+```bash
+npm install
+npm run dev
+```
+
+Para gerar e validar o build de produção:
+
+```bash
+npm run build
+npm run preview
+```
+
+O build multipágina é gerado em `dist/` e inclui `index.html`, `cursos.html` e `all-projects.html`.
+
+Acesse o portfólio online em [matheussilvano.dev](https://matheussilvano.dev).
 
 ## Contato
 

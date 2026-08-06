@@ -1,8 +1,7 @@
-(() => {
-  const { useEffect, useState } = React;
-  const { TEXT } = window.AppData;
+import { useEffect, useState } from "react";
+import { TEXT } from "../data/site-data.js";
 
-  function useSiteState() {
+export function useSiteState() {
     const savedLang = localStorage.getItem("language");
     const [lang, setLang] = useState(TEXT[savedLang] ? savedLang : "pt");
     const [dark, setDark] = useState(localStorage.getItem("theme") === "dark");
@@ -19,6 +18,3 @@
 
     return { lang, setLang, dark, setDark };
   }
-
-  window.AppHooks = { ...(window.AppHooks || {}), useSiteState };
-})();

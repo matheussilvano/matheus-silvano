@@ -1,5 +1,4 @@
-(() => {
-  const { ASSETS, t } = window.AppData;
+import { ASSETS, t } from "../data/site-data.js";
 
   function getHeaderOffset() {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -23,7 +22,7 @@
     }
   }
 
-  function Controls({ lang, setLang, dark, setDark }) {
+  export function Controls({ lang, setLang, dark, setDark }) {
     return (
       <div className="header-controls">
         <div className="language-selector" id="languageSelector">
@@ -36,11 +35,11 @@
     );
   }
 
-  function Footer({ lang }) {
+  export function Footer({ lang }) {
     return <footer className="footer"><p>{t(lang, "footer_text")}</p></footer>;
   }
 
-  function ScrollArrow({ href, label, inline = false, showText = true, prompt = "" }) {
+  export function ScrollArrow({ href, label, inline = false, showText = true, prompt = "" }) {
     const textLabel = prompt ? `${prompt} ${label}` : label;
     return (
       <a
@@ -60,11 +59,3 @@
       </a>
     );
   }
-
-  window.AppComponents = {
-    ...(window.AppComponents || {}),
-    Controls,
-    Footer,
-    ScrollArrow
-  };
-})();

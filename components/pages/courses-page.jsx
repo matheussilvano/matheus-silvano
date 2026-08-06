@@ -1,10 +1,12 @@
-(() => {
-  const { useMemo, useState } = React;
-  const { ASSETS, CERT_BADGES, COURSE_SECTIONS, t } = window.AppData;
-  const { useReveal, useCardTilt } = window.AppHooks;
-  const { Controls, Footer, ChatAssistant, CourseCard, ScrollArrow } = window.AppComponents;
+import { Fragment, useMemo, useState } from "react";
+import { ASSETS, CERT_BADGES, COURSE_SECTIONS, t } from "../../data/site-data.js";
+import { useReveal } from "../../hooks/use-reveal.js";
+import { useCardTilt } from "../../hooks/use-card-tilt.js";
+import { Controls, Footer, ScrollArrow } from "../layout.jsx";
+import { ChatAssistant } from "../chat-assistant.jsx";
+import { CourseCard } from "../cards.jsx";
 
-  function CoursesPage({ lang, setLang, dark, setDark }) {
+  export function CoursesPage({ lang, setLang, dark, setDark }) {
     useReveal();
     useCardTilt();
     const [query, setQuery] = useState("");
@@ -76,10 +78,10 @@
               </div>
 
               {filtered.map((section) => (
-                <React.Fragment key={section.key}>
+                <Fragment key={section.key}>
                   <h3 className="section-title" style={{ fontSize: "1.8rem", marginBottom: "1.5rem", marginTop: "3rem" }}>{section.key}</h3>
                   <div className="project-grid course-panel">{section.items.map((item) => <CourseCard key={`${section.key}-${item.title}`} lang={lang} item={item} />)}</div>
-                </React.Fragment>
+                </Fragment>
               ))}
             </section>
           </div>
@@ -90,6 +92,3 @@
       </>
     );
   }
-
-  window.AppPages = { ...(window.AppPages || {}), CoursesPage };
-})();

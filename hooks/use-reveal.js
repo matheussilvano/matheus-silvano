@@ -1,7 +1,6 @@
-(() => {
-  const { useEffect } = React;
+import { useEffect } from "react";
 
-  function useReveal(refreshKey) {
+export function useReveal(refreshKey) {
     useEffect(() => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -14,6 +13,3 @@
       return () => observer.disconnect();
     }, [refreshKey]);
   }
-
-  window.AppHooks = { ...(window.AppHooks || {}), useReveal };
-})();

@@ -1,8 +1,7 @@
-(() => {
-  const { useEffect, useRef, useState } = React;
-  const { ASSETS, API_URL, t } = window.AppData;
+import { useEffect, useRef, useState } from "react";
+import { ASSETS, API_URL, t } from "../data/site-data.js";
 
-  function ChatAssistant({ lang, quickReplies, intro }) {
+  export function ChatAssistant({ lang, quickReplies, intro }) {
     const [open, setOpen] = useState(false);
     const [fullscreen, setFullscreen] = useState(false);
     const [messages, setMessages] = useState([{ sender: "assistant", text: intro }]);
@@ -162,9 +161,3 @@
       </>
     );
   }
-
-  window.AppComponents = {
-    ...(window.AppComponents || {}),
-    ChatAssistant
-  };
-})();

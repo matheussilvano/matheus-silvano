@@ -1,8 +1,10 @@
-(() => {
-  const { useEffect, useState } = React;
-  const { ASSETS, TECH_ICONS, PROJECTS, EXPERIENCE, RECOMMENDATIONS, t } = window.AppData;
-  const { useReveal, useCardTilt } = window.AppHooks;
-  const { Controls, Footer, ChatAssistant, ScrollArrow, ProjectDetailsModal } = window.AppComponents;
+import { useEffect, useState } from "react";
+import { ASSETS, TECH_ICONS, PROJECTS, EXPERIENCE, RECOMMENDATIONS, t } from "../../data/site-data.js";
+import { useReveal } from "../../hooks/use-reveal.js";
+import { useCardTilt } from "../../hooks/use-card-tilt.js";
+import { Controls, Footer, ScrollArrow } from "../layout.jsx";
+import { ChatAssistant } from "../chat-assistant.jsx";
+import { ProjectDetailsModal } from "../cards.jsx";
   const TECH_HIGHLIGHTS = [
     "PostgreSQL",
     "Scikit-learn",
@@ -40,7 +42,7 @@
     });
   }
 
-  function PortfolioPage({ lang, setLang, dark, setDark }) {
+  export function PortfolioPage({ lang, setLang, dark, setDark }) {
     useReveal();
     useCardTilt();
     const [recIndex, setRecIndex] = useState(0);
@@ -175,8 +177,8 @@
                 <h3>{t(lang, "hero_side_title")}</h3>
                 <div className="hero-badges">
                   <div className="badge-strip hero-badge-strip">
-                    <a className="badge-icon" href="https://credentials.databricks.com/7e1cd27a-b050-4d11-91c3-150c23fa985b" target="_blank" rel="noopener"><img src="assets/certificates/badges/databricks_gerative_ai_fundamentals.png" alt="Databricks badge" /></a>
-                    <a className="badge-icon" href="https://www.coursera.org/account/accomplishments/specialization/5QI99HXISLFA" target="_blank" rel="noopener"><img src="assets/certificates/badges/badge_google_essencials_ai.png" alt="Google badge" /></a>
+                    <a className="badge-icon" href="https://credentials.databricks.com/7e1cd27a-b050-4d11-91c3-150c23fa985b" target="_blank" rel="noopener"><img src="/assets/certificates/badges/databricks_gerative_ai_fundamentals.png" alt="Databricks badge" /></a>
+                    <a className="badge-icon" href="https://www.coursera.org/account/accomplishments/specialization/5QI99HXISLFA" target="_blank" rel="noopener"><img src="/assets/certificates/badges/badge_google_essencials_ai.png" alt="Google badge" /></a>
                   </div>
                 </div>
                 <p>{t(lang, "hero_side_note")}</p>
@@ -294,6 +296,3 @@
       </>
     );
   }
-
-  window.AppPages = { ...(window.AppPages || {}), PortfolioPage };
-})();

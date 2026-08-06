@@ -1,20 +1,31 @@
-(() => {
-  const { useSiteState } = window.AppHooks;
-  const { PortfolioPage, CoursesPage, AllProjectsPage } = window.AppPages;
+import { createRoot } from "react-dom/client";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { useSiteState } from "./hooks/use-site-state.js";
+import { PortfolioPage } from "./components/pages/home-page.jsx";
+import { CoursesPage } from "./components/pages/courses-page.jsx";
+import { AllProjectsPage } from "./components/pages/all-projects-page.jsx";
+import "./style.css";
 
-  function AppRouter() {
-    const { lang, setLang, dark, setDark } = useSiteState();
-    const page = document.body.dataset.page || "home";
+function AppRouter() {
+  const { lang, setLang, dark, setDark } = useSiteState();
+  const page = document.body.dataset.page || "home";
+  const pageProps = { lang, setLang, dark, setDark };
 
-    if (page === "courses") {
-      return <CoursesPage lang={lang} setLang={setLang} dark={dark} setDark={setDark} />;
-    }
-    if (page === "all-projects") {
-      return <AllProjectsPage lang={lang} setLang={setLang} dark={dark} setDark={setDark} />;
-    }
-    return <PortfolioPage lang={lang} setLang={setLang} dark={dark} setDark={setDark} />;
+  if (page === "courses") {
+    return <><CoursesPage {...pageProps} /><SpeedInsights /></>;
   }
 
-  const root = ReactDOM.createRoot(document.getElementById("app-root"));
-  root.render(<AppRouter />);
-})();
+  if (page === "all-projects") {
+    return <><AllProjectsPage {...pageProps} /><SpeedInsights /></>;
+  }
+
+  return <><PortfolioPage {...pageProps} /><SpeedInsights /></>;
+}
+
+const rootElement = document.getElementById("app-root");
+
+if (!rootElement) {
+  throw new Error("Elemento #app-root não encontrado.");
+}
+
+createRoot(rootElement).render(<AppRouter />);
